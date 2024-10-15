@@ -23,6 +23,7 @@
   grid-row-start: 2;
   text-align: center;
   padding: 0 16px;
+  over-flow: hidden;
 }
 
 .comingsoon {
@@ -55,7 +56,7 @@
 }
 
 .logo {
-  width: 50%; /* Make the logo take 100% of its container width */
+  width: 80%;
   max-width: 300px; /* Limit the maximum width to prevent it from getting too large */
   height: auto; /* Maintain the aspect ratio */
   margin: 0 auto; /* Center the logo */
@@ -63,12 +64,14 @@
 
 @media (min-width: 768px) {
   .logo {
+    width: auto;
     max-width: 400px; /* Larger screens get a bigger logo */
   }
 }
 
 @media (min-width: 1024px) {
   .logo {
+    width: 50%;
     max-width: 500px; /* Even bigger for desktop */
   }
 }
