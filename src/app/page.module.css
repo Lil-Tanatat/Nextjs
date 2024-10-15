@@ -1,65 +1,40 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: white;
-  --button-secondary-hover: #f2f2f2;
-
   display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
-  min-height: 100svh;
-  padding: 0px;
+  height: 100vh;
+  padding: 0;
   gap: 64px;
   font-family: var(--font-geist-sans);
 
-  /* Updated background setup */
+  /* Background setup */
   background-image: url("/img/background-linear.png"),
-    /* Top linear gradient */ url("/img/background.png"); /* Bottom main background */
-  background-size: cover, cover; /* Adjusted size */
-  background-position: center, center;
-  background-repeat: no-repeat, no-repeat;
+    url("/img/background.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.comingsoon {
-  color: black;
-}
-
-/* Rest of the styles remain unchanged */
 .main {
   display: flex;
   flex-direction: column;
   gap: 32px;
   grid-row-start: 2;
+  text-align: center;
+  padding: 0 16px;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
-}
-
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
-
-.main code {
-  font-family: inherit;
-  background-image: "/public/img/background.png";
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+.comingsoon {
+  color: black;
+  font-size: 3rem;
+  margin: 16px 0;
 }
 
 .ctas {
   display: flex;
   gap: 16px;
+  justify-content: center;
 }
 
 .ctas a {
@@ -75,8 +50,27 @@
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  line-height: 20px;
   font-weight: 500;
+  text-align: center;
+}
+
+.logo {
+  width: 100%; /* Make the logo take 100% of its container width */
+  max-width: 300px; /* Limit the maximum width to prevent it from getting too large */
+  height: auto; /* Maintain the aspect ratio */
+  margin: 0 auto; /* Center the logo */
+}
+
+@media (min-width: 768px) {
+  .logo {
+    max-width: 400px; /* Larger screens get a bigger logo */
+  }
+}
+
+@media (min-width: 1024px) {
+  .logo {
+    max-width: 500px; /* Even bigger for desktop */
+  }
 }
 
 a.primary {
@@ -97,17 +91,46 @@ a.secondary {
   gap: 24px;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+/* Responsiveness: Tablets */
+@media (max-width: 768px) {
+  .comingsoon {
+    font-size: 2.5rem;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 1rem;
+    height: 44px;
+    width: 100%;
+    padding: 0 16px;
+  }
 }
 
-.footer img {
-  flex-shrink: 0;
+/* Responsiveness: Mobile Phones */
+@media (max-width: 480px) {
+  .comingsoon {
+    font-size: 2rem;
+  }
+
+  .ctas a {
+    font-size: 0.9rem;
+    height: 40px;
+    padding: 0 12px;
+  }
+
+  .page {
+    padding: 32px;
+  }
+
+  .ctas {
+    gap: 12px;
+  }
 }
 
-/* Enable hover only on non-touch devices */
+/* Hover styles */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
     background: var(--button-primary-hover);
@@ -123,47 +146,5 @@ a.secondary {
   .footer a:hover {
     text-decoration: underline;
     text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    align-items: center;
-    justify-content: center;
   }
 }
