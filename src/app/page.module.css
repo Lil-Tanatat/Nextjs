@@ -3,7 +3,7 @@
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
   justify-items: center;
-  height: 100vh;
+  min-height: 100vh;
   padding: 0;
   gap: 64px;
   font-family: var(--font-geist-sans);
@@ -55,7 +55,7 @@
 }
 
 .logo {
-  width: 100%; /* Make the logo take 100% of its container width */
+  width: 50%; /* Make the logo take 100% of its container width */
   max-width: 300px; /* Limit the maximum width to prevent it from getting too large */
   height: auto; /* Maintain the aspect ratio */
   margin: 0 auto; /* Center the logo */
