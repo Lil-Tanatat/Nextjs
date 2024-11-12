@@ -1,0 +1,8 @@
+{
+  "header": "Header",
+  "Message": "Message",
+  "Home": {
+    "Body": "Greeting this is my website"
+  },
+  "Footer": { "Column1": "Column1", "Column2": "Column2" }
+}
