@@ -37,7 +37,7 @@ function StepsSection() {
   ];
 
   return (
-    <section className="py-36 w-full">
+    <section className="py-36 w-full flex justify-center">
       <div className="w-full flex flex-col items-center">
         <div className="text-center mb-28">
           <h2 className="text-3xl sm:text-4xl font-bold">
@@ -49,14 +49,13 @@ function StepsSection() {
         </div>
         <div className="flex flex-col md:flex-row w-full relative gap-0">
           {/* White Line with Shadow */}
-          <div className="absolute md:top-3 md:left-0 md:right-0 md:h-2 h-full md:bg-white bg-transparent z-10 w-full md:w-[1450px] mx-auto shadow-2xl" />
-
+          <div className="absolute md:top-3 md:left-0 md:right-0 md:h-2 h-full md:bg-white bg-transparent z-10 w-full md:w-[70%] mx-auto shadow-2xl" />
           {steps.map((step, index) => (
             <div
               key={index}
               className={`relative flex flex-col items-center justify-center p-8 rounded-3xl shadow-2xl ${
                 colors[index]
-              } w-full h-[340px] ${index !== 0 ? "md:-ml-16" : ""} z-${
+              } w-full h-[340px] ${index !== 0 ? "md:-ml-8" : ""} z-${
                 index + 1
               }`}
             >

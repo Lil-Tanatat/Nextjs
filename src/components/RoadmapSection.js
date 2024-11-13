@@ -1,5 +1,5 @@
 import React from "react";
-import RoadMap from "../assets/images/Roadmap.png";
+import RoadMap from "../assets/images/NewRoadMap.png";
 
 function RoadmapSection() {
   return (
