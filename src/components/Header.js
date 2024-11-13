@@ -24,7 +24,7 @@ const Header = () => {
 
   // Countdown Timer
   useEffect(() => {
-    const startDate = new Date();
+    const startDate = new Date("2024-10-30T23:59:59");
     const targetDate = new Date("2024-12-31T23:59:59");
 
     const countdown = setInterval(() => {
