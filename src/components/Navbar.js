@@ -20,7 +20,7 @@ function Navbar() {
     <nav className="bg-white p-0 shadow-md">
       <div className="container mx-auto flex justify-between items-center h-[62px] px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/tokensale">
+        <Link to="/">
           <div className="flex items-center space-x-1 md:space-x-2">
             <img src={Logo} alt="Logo Giver" className="w-[45px] h-[45px]" />
             <div className="text-[24px] md:text-[28px] lg:text-[32px] font-semibold text-[#517008]">
