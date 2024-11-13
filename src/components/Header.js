@@ -151,8 +151,8 @@ const Header = () => {
         setMessage("USDT approved successfully.");
       }
 
-      setMessage("Processing your transaction...");
-      // Send usdtAmount in wei to buyTokens function
+      setMessage("Processing your transaction..., Do not Close");
+
       const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
         .buyTokens(usdtAmountInWei)
@@ -223,7 +223,6 @@ const Header = () => {
             <span>Minutes</span>
             <span>Seconds</span>
           </div>
-
           <div className="flex justify-center md:justify-start space-x-4 items-center text-center">
             {["days", "hours", "minutes", "seconds"].map((unit) => (
               <div key={unit} className="flex flex-col items-center">
@@ -233,77 +232,109 @@ const Header = () => {
               </div>
             ))}
           </div>
-
           <div className="relative mt-4 w-full h-4 bg-gray-200 rounded-full overflow-hidden">
             <div
               className="h-full bg-green-600"
               style={{ width: `${progress}%` }}
             ></div>
           </div>
-
           <p className="text-[16px] md:text-[20px] font-medium text-white">
             Buy Giver Token with USDT only!
           </p>
-
-          {purchaseHistory.length === 0 && (
-            <div className="mt-4">
-              <input
-                type="number"
-                placeholder="Enter USDT Amount"
-                className="w-full md:w-1/2 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500"
-                value={usdtAmount}
-                onChange={(e) => setUsdtAmount(e.target.value)}
-              />
-              <button
-                onClick={buyTokens}
-                className="mt-2 w-full md:w-1/2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded px-4 py-2"
-              >
-                Buy Tokens
-              </button>
-            </div>
-          )}
-
-          <button
-            onClick={connectMetaMask}
-            className="mt-2 w-full md:w-1/2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded px-4 py-2"
-          >
-            {account ? "Wallet Connected" : "Connect MetaMask"}
-          </button>
+          <p className="text-[14px] md:text-[16px] font-medium text-white">
+            Follow these steps :
+          </p>
+          <div className="connect">
+            <p className="text-[14px] md:text-[16px] font-medium text-white">
+              1) Connect Your MetaMask Wallet :
+            </p>
+            <button
+              onClick={connectMetaMask}
+              className="mt-2 w-full md:w-1/2 bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold rounded px-4 py-2 ml-8"
+            >
+              {account ? "Wallet Connected" : "Connect MetaMask"}
+            </button>
+          </div>
+          {account ? (
+            <>
+              {" "}
+              <p className="text-[14px] md:text-[16px] font-medium text-white">
+                2) Check Your MetaMask Account :
+              </p>
+              <div className="text-white ml-8">
+                Your MetaMask Account : {account}
+              </div>
+              {purchaseHistory.length === 0 && (
+                <div className="mt-2">
+                  <div>
+                    <p className="text-[14px] md:text-[16px] font-medium text-white">
+                      3) Enter USDT Amount :
+                    </p>
+                    <input
+                      type="number"
+                      placeholder="Enter USDT Amount"
+                      className="w-full md:w-1/2 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500 mt-2 ml-8"
+                      value={usdtAmount}
+                      onChange={(e) => setUsdtAmount(e.target.value)}
+                    />
+                  </div>
+                  <div className="mt-2">
+                    <p className="text-[14px] md:text-[16px] font-medium text-white">
+                      4) Click Buy Tokens Button :
+                    </p>
+                    <button
+                      onClick={buyTokens}
+                      className=" mt-1 w-full md:w-1/2 bg-green-900 hover:bg-green-600 text-white font-semibold rounded px-4 py-2 ml-8"
+                    >
+                      Buy Tokens
+                    </button>
+                  </div>
+                </div>
+              )}
+              {purchaseHistory.length > 0 && (
+                <div>
+                  <p className="text-[14px] md:text-[16px] font-medium text-white">
+                    3) You already have purchased tokens please wait to calim on
+                    release date :
+                  </p>
+                  <ul className="mt-2 space-y-2 ml-8">
+                    {purchaseHistory.map((purchase, index) => (
+                      <li key={index} className="text-white">
+                        {`Amount: ${
+                          purchase.tokenAmount / 1000000000000000000
+                        } GIV + ${
+                          (purchase.tokenAmount * 20) /
+                          100 /
+                          1000000000000000000
+                        } Bonus, Unlock Time: ${new Date(
+                          purchase.unlockTime * 1000
+                        ).toLocaleString()}`}
+                        {!purchase.claimed &&
+                          Math.floor(Date.now() / 1000) >
+                            purchase.unlockTime && (
+                            <button
+                              onClick={() =>
+                                claimTokens(
+                                  purchase.unlockTime,
+                                  purchase.claimed
+                                )
+                              }
+                              className="ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-2 py-1"
+                            >
+                              Claim
+                            </button>
+                          )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          ) : null}
 
           {message && (
-            <p className="text-white text-sm mt-2 text-center">{message}</p>
-          )}
-
-          <h2 className="mt-8 text-white font-semibold">Purchase History</h2>
-          {purchaseHistory.length > 0 ? (
-            <ul className="mt-2 space-y-2">
-              {purchaseHistory.map((purchase, index) => (
-                <li key={index} className="text-white text-sm">
-                  {`Amount: ${purchase.tokenAmount} Giver + ${(
-                    (purchase.tokenAmount * 20) /
-                    100
-                  ).toFixed(2)} Bonus, Unlock Time: ${new Date(
-                    purchase.unlockTime * 1000
-                  ).toLocaleString()}, Claimed: ${
-                    purchase.claimed ? "Yes" : "No"
-                  }`}
-                  {!purchase.claimed &&
-                    Math.floor(Date.now() / 1000) > purchase.unlockTime && (
-                      <button
-                        onClick={() =>
-                          claimTokens(purchase.unlockTime, purchase.claimed)
-                        }
-                        className="ml-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded px-2 py-1"
-                      >
-                        Claim
-                      </button>
-                    )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-white text-sm mt-2">
-              No purchase history available.
+            <p className="text-red-600 text-xl font-semibold mt-2 text-center">
+              System Message : {message}
             </p>
           )}
         </div>
