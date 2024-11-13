@@ -145,7 +145,7 @@ const Header = () => {
       if (parseFloat(allowance) < usdtValue) {
         setMessage("Approving USDT for the presale contract...");
         await usdtContract.methods
-          .approve(presaleContractAddress, usdtAmount)
+          .approve(presaleContractAddress, usdtAmount * 1000000000000000000)
           .send({ from: account });
         setMessage("USDT approved successfully.");
       }
@@ -242,21 +242,23 @@ const Header = () => {
             Buy Giver Token with USDT only!
           </p>
 
-          <div className="mt-4">
-            <input
-              type="number"
-              placeholder="Enter USDT Amount"
-              className="w-full md:w-1/2 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500"
-              value={usdtAmount}
-              onChange={(e) => setUsdtAmount(e.target.value)}
-            />
-            <button
-              onClick={buyTokens}
-              className="mt-2 w-full md:w-1/2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded px-4 py-2"
-            >
-              Buy Tokens
-            </button>
-          </div>
+          {purchaseHistory.length === 0 && (
+            <div className="mt-4">
+              <input
+                type="number"
+                placeholder="Enter USDT Amount"
+                className="w-full md:w-1/2 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500"
+                value={usdtAmount}
+                onChange={(e) => setUsdtAmount(e.target.value)}
+              />
+              <button
+                onClick={buyTokens}
+                className="mt-2 w-full md:w-1/2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded px-4 py-2"
+              >
+                Buy Tokens
+              </button>
+            </div>
+          )}
 
           <button
             onClick={connectMetaMask}
@@ -274,7 +276,10 @@ const Header = () => {
             <ul className="mt-2 space-y-2">
               {purchaseHistory.map((purchase, index) => (
                 <li key={index} className="text-white text-sm">
-                  {`Amount: ${purchase.tokenAmount}, Unlock Time: ${new Date(
+                  {`Amount: ${purchase.tokenAmount} Giver + ${(
+                    (purchase.tokenAmount * 20) /
+                    100
+                  ).toFixed(2)} Bonus, Unlock Time: ${new Date(
                     purchase.unlockTime * 1000
                   ).toLocaleString()}, Claimed: ${
                     purchase.claimed ? "Yes" : "No"
