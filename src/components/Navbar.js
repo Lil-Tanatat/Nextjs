@@ -18,13 +18,17 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-white p-0 shadow-md">
+    <nav className="bg-white px-8 shadow-md">
       <div className="container mx-auto flex justify-between items-center h-[62px] px-4 md:px-0">
         {/* Logo */}
-        <div className="flex items-center space-x-2">
-          <img src={Logo} alt="Logo Giver" className="w-[51px] h-[51px]" />
-          <div className="text-[40px] font-semibold text-[#517008]">Giver</div>
-        </div>
+        <Link to="/">
+          <div className="flex items-center space-x-2">
+            <img src={Logo} alt="Logo Giver" className="w-[51px] h-[51px]" />
+            <div className="text-[40px] font-semibold text-[#517008]">
+              Giver
+            </div>
+          </div>
+        </Link>
 
         {/* Menu Icon for Mobile */}
         <div className="md:hidden">

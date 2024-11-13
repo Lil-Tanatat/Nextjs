@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import HeroCO2 from "../assets/images/HeroCO2.png";
 import Coin from "../assets/images/Coin.png";
 import HeroBackground from "../assets/images/HeroSmoke.png";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
     <section
-      className="text-left py-10 md:py-20 bg-cover bg-center relative"
+      className="text-left py-10 md:py-0 bg-cover bg-center relative"
       style={{
         backgroundImage: `url(${HeroBackground}), linear-gradient(to bottom, #C5D8A4 30%, white 70%)`,
         backgroundBlendMode: "overlay",
@@ -48,13 +49,15 @@ function HeroSection() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[79px] lg:h-[79px] relative z-10"
             />
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-[#92B344] text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
-            >
-              Token Sale
-            </motion.button>
+            <Link to="/tokensale">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-[#92B344] text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
+              >
+                Token Sale
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
 
