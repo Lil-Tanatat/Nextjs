@@ -110,7 +110,6 @@ const Header = () => {
     }
   };
 
-  // Buy Tokens
   const buyTokens = async () => {
     const usdtValue = parseFloat(usdtAmount);
 
@@ -133,7 +132,7 @@ const Header = () => {
       const usdtContract = new web3.eth.Contract(USDTABI, usdtContractAddress);
 
       const usdtBalance = await usdtContract.methods.balanceOf(account).call();
-      if (parseFloat(usdtBalance) < usdtValue) {
+      if (parseFloat(web3.utils.fromWei(usdtBalance, "ether")) < usdtValue) {
         setMessage("Insufficient USDT balance.");
         return;
       }
@@ -142,17 +141,21 @@ const Header = () => {
         .allowance(account, presaleContractAddress)
         .call();
 
-      if (parseFloat(allowance) < usdtValue) {
+      if (parseFloat(web3.utils.fromWei(allowance, "ether")) < usdtValue) {
         setMessage("Approving USDT for the presale contract...");
+        // Convert usdtAmount to wei
+        const usdtAmountInWei = web3.utils.toWei(usdtAmount, "ether");
         await usdtContract.methods
-          .approve(presaleContractAddress, usdtAmount * 1000000000000000000)
+          .approve(presaleContractAddress, usdtAmountInWei)
           .send({ from: account });
         setMessage("USDT approved successfully.");
       }
 
       setMessage("Processing your transaction...");
+      // Send usdtAmount in wei to buyTokens function
+      const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
-        .buyTokens(usdtValue.toString())
+        .buyTokens(usdtAmountInWei)
         .send({ from: account, gas: 200000 });
 
       setMessage("Transaction successful! Tokens purchased.");

@@ -18,7 +18,9 @@ function AboutUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <p className="text-lg md:text-[20px] font-semibold text-[#050505]">About us</p>
+            <p className="text-lg md:text-[20px] font-semibold text-[#050505]">
+              About us
+            </p>
             <motion.h2
               className="text-2xl md:text-[24px] font-semibold"
               initial={{ opacity: 0, x: -50 }}
@@ -59,7 +61,11 @@ function AboutUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <img src={About1} alt="About 1" className="w-full max-w-xs md:max-w-sm object-cover" />
+            <img
+              src={About1}
+              alt="About 1"
+              className="w-full max-w-xs md:max-w-sm object-cover"
+            />
           </motion.div>
         </div>
 
@@ -70,7 +76,11 @@ function AboutUs() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            <img src={About2} alt="About 2" className="w-full max-w-xs md:max-w-sm object-cover" />
+            <img
+              src={About2}
+              alt="About 2"
+              className="w-full max-w-xs md:max-w-sm object-cover"
+            />
           </motion.div>
           <motion.div
             className="max-w-md text-center md:text-left"
@@ -84,7 +94,8 @@ function AboutUs() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              It Is A Critical Component Of<br />
+              It Is A Critical Component Of
+              <br />
               <span className="text-[#517008]">Modern</span> Business
             </motion.h2>
             <motion.h3

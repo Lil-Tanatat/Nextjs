@@ -20,7 +20,7 @@ function BenefitsSection() {
 
   return (
     <section className="py-16 bg-white">
-      <div className="w-full px-4 lg:px-0">
+      <div className="w-full flex flex-col items-center">
         <h2 className="text-[24px] sm:text-[32px] md:text-[40px] font-bold text-center mb-12">
           Benefits of the <span className="text-[#517008]">Carbon Credit</span>
         </h2>
@@ -30,7 +30,7 @@ function BenefitsSection() {
           {/* Left Text Section */}
           <div className="lg:w-1/2 flex flex-col items-center lg:items-end text-center lg:text-right mt-6 lg:mt-0">
             <div className="relative flex items-center justify-end mb-4">
-              <div className="bg-[#92B344] text-white text-[50px] sm:text-[85px] font-bold w-[100px] sm:w-[208px] h-[60px] sm:h-[108px] flex items-center justify-center clip-arrow-left">
+              <div className="bg-[#92B344] text-white text-[50px] sm:text-[85px] font-bold w-[100px] sm:w-[150px] h-[60px] sm:h-[108px] flex items-center justify-center clip-arrow-left">
                 01
               </div>
               <motion.img
@@ -64,7 +64,7 @@ function BenefitsSection() {
           <motion.img
             src={Carbon1}
             alt="Carbon Credit Trading"
-            className="w-full lg:w-[950px] h-auto max-h-[463px] object-cover shadow-lg mx-0"
+            className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-auto max-h-[463px] object-cover shadow-lg mx-0"
             variants={fadeInScale}
             initial="hidden"
             whileInView="visible"
@@ -73,18 +73,18 @@ function BenefitsSection() {
         </div>
 
         {/* Benefit 2 - Text Right, Image Left */}
-        <div className="flex flex-col lg:flex-row-reverse items-center lg:justify-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-0 mt-10 lg:mt-0">
+        <div className="flex flex-col lg:flex-row-reverse items-center lg:justify-center lg:items-start space-y-8 lg:space-y-0 lg:space-x-0 mt-5 lg:mt-0">
           {/* Right Text Section */}
           <div className="lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left mt-6 lg:mt-0">
             <div className="relative flex items-center mb-4">
-              <div className="bg-[#92B344] text-white text-[50px] sm:text-[85px] font-bold w-[100px] sm:w-[208px] h-[60px] sm:h-[108px] flex items-center justify-center clip-arrow-right">
+              <div className="bg-[#92B344] text-white text-[50px] sm:text-[85px] font-bold w-[100px] sm:w-[150px] h-[60px] sm:h-[108px] flex items-center justify-center clip-arrow-right">
                 02
               </div>
               <motion.img
                 src={Leaf}
                 alt="Leaf"
                 className="absolute top-[-10px] sm:top-[-28px] right-[-20px] sm:right-[-40px] w-[50px] sm:w-[105px] h-[50px] sm:h-[105px]"
-                style={{ rotate: "100deg" }} // Directly apply rotation here
+                style={{ rotate: "100deg" }}
                 variants={float}
                 animate="animate"
               />
@@ -112,7 +112,7 @@ function BenefitsSection() {
           <motion.img
             src={Carbon2}
             alt="Staking Pool"
-            className="w-full lg:w-[950px] h-auto max-h-[463px] object-cover shadow-lg mx-0"
+            className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-auto max-h-[463px] object-cover shadow-lg mx-0"
             variants={fadeInScale}
             initial="hidden"
             whileInView="visible"
