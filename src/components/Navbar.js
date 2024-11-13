@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/Logo Giver.png";
+import { motion } from "framer-motion";
 
 function Navbar() {
   const location = useLocation();
@@ -88,9 +89,13 @@ function Navbar() {
         {/* Token Sale Button and Language Selector */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-10">
           <Link to="/tokensale">
-            <button className="w-[100px] lg:w-[120px] h-[36px] lg:h-[42px] bg-[#92B344] text-white px-4 py-1 rounded-full text-[12px] lg:text-[14px]">
-              Token Sale
-            </button>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-[100px] lg:w-[120px] h-[36px] lg:h-[42px] bg-[#92B344] hover:bg-yellow-600 text-white px-4 py-1 rounded-full text-[12px] lg:text-[14px]"
+            >
+              Join Presale
+            </motion.button>
           </Link>
           <div className="flex items-center space-x-1 cursor-pointer text-[12px] lg:text-[14px]">
             <span>EN</span>

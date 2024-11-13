@@ -3,11 +3,12 @@ import { motion } from "framer-motion";
 import HeroCO2 from "../assets/images/HeroCO2.png";
 import Coin from "../assets/images/Coin.png";
 import HeroBackground from "../assets/images/HeroSmoke.png";
+import { Link } from "react-router-dom";
 
 function HeroSection() {
   return (
     <section
-      className="text-left py-10 md:py-20 bg-cover bg-center relative"
+      className="text-left py-10 md:py-0 bg-cover bg-center relative"
       style={{
         backgroundImage: `url(${HeroBackground}), linear-gradient(to bottom, #C5D8A4 30%, white 70%)`,
         backgroundBlendMode: "overlay",
@@ -39,32 +40,33 @@ function HeroSection() {
             Giver leverages blockchain and smart contracts to ensure
             transparency and connect carbon credit buyers with sellers easily.
           </p>
-          <div className="relative mt-6 md:mt-8 flex items-center">
-            <motion.img
-              src={Coin}
-              alt="Coin"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[79px] lg:h-[79px] relative z-10"
-            />
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-[#92B344] text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
-            >
-              Token Sale
-            </motion.button>
-          </div>
+          <Link to="/tokensale">
+            <div className="relative mt-6 md:mt-8 flex items-center">
+              <motion.img
+                src={Coin}
+                alt="Coin"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[79px] lg:h-[79px] relative z-10"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-[#92B344] text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
+              >
+                Buy Tokens
+              </motion.button>
+            </div>
+          </Link>
         </motion.div>
 
         {/* Image content with float effect */}
         <motion.div
-          initial={{ opacity: 0, x: 50 }}
           animate={{
             opacity: 1,
             x: 0,
-            y: ["0%", "-10%", "0%"],
+            y: ["0%", "-2%", "0%"],
           }}
           transition={{
             duration: 3,
@@ -74,7 +76,11 @@ function HeroSection() {
           }}
           className="w-full lg:w-1/2 p-4 mt-8 lg:mt-0"
         >
-          <img src={HeroCO2} alt="Giver Token" className="w-full h-auto" />
+          <img
+            src={HeroCO2}
+            alt="Giver Token"
+            className=" mx-auto w-full h-auto md:w-[95%]"
+          />
         </motion.div>
       </div>
     </section>
