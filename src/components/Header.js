@@ -3,6 +3,8 @@ import Web3 from "web3";
 import GIVPreSaleABI from "../ABI/GIVPreSaleABI.json";
 import USDTABI from "../ABI/USDTABI.json";
 import CoinToken from "../assets/images/Coin Token.png";
+import { motion } from "framer-motion";
+import Coin from "../assets/images/Coin.png";
 
 const presaleContractAddress = "0x21EAA23a845BbaC45b0Ce05CA091a0A78b716753";
 const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
@@ -242,20 +244,63 @@ const Header = () => {
             <p className="text-[16px] md:text-[20px] font-medium text-white">
               Buy Giver Token with USDT only!
             </p>
+            <a href="#buy-section">
+              <div
+                className="relative mt-6 md:mt-8 flex items-center"
+                id="buy-section"
+              >
+                <motion.img
+                  src={Coin}
+                  alt="Coin"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[79px] lg:h-[79px] relative z-10"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-green-950 text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
+                >
+                  Buy Tokens
+                </motion.button>
+              </div>
+            </a>
           </div>
         </div>
 
-        <div className="relative w-full md:w-1/2 flex justify-center items-center">
+        <motion.div
+          animate={{
+            opacity: 1,
+            x: ["0%", "1%", "0%"],
+            y: ["0%", "-2%", "0%"],
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          className="w-full lg:w-1/2 p-4 mt-8 lg:mt-0"
+        >
+          <img
+            src={CoinToken}
+            alt="Coin"
+            className="w-100 h-100 md:w-100 md:h-100 object-contain mx-auto"
+          />
+        </motion.div>
+
+        {/* <div className="relative w-full md:w-1/2 flex justify-center items-center">
           <img
             src={CoinToken}
             alt="Coin"
             className="w-100 h-100 md:w-100 md:h-100 object-contain"
           />
-        </div>
+        </div> */}
       </section>
-      <div id="buy-section" className="bg-[#92B344]  px-10 pb-10 items-center">
-        <p className="text-[14px] md:text-[16px] font-medium text-white">
-          Follow these steps :
+      <div className="bg-[#92B344]  px-10 pb-10 items-center">
+        <p className="text-[24px] md:text-[20px] text-white font-bold mb-4">
+          Join Giver Presale Follow these steps :
         </p>
         <div className="connect">
           <p className="text-[14px] md:text-[16px] font-medium text-white">
