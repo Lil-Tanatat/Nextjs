@@ -1,4 +1,3 @@
-// Navbar.jsx
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../assets/images/Logo Giver.png";
@@ -18,13 +17,13 @@ function Navbar() {
   ];
 
   return (
-    <nav className="bg-white px-8 shadow-md">
-      <div className="container mx-auto flex justify-between items-center h-[62px] px-4 md:px-0">
+    <nav className="bg-white p-0 shadow-md">
+      <div className="container mx-auto flex justify-between items-center h-[62px] px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/">
-          <div className="flex items-center space-x-2">
-            <img src={Logo} alt="Logo Giver" className="w-[51px] h-[51px]" />
-            <div className="text-[40px] font-semibold text-[#517008]">
+        <Link to="/tokensale">
+          <div className="flex items-center space-x-1 md:space-x-2">
+            <img src={Logo} alt="Logo Giver" className="w-[45px] h-[45px]" />
+            <div className="text-[24px] md:text-[28px] lg:text-[32px] font-semibold text-[#517008]">
               Giver
             </div>
           </div>
@@ -59,14 +58,14 @@ function Navbar() {
 
         {/* Menu Items */}
         <ul
-          className={`md:flex md:space-x-8 absolute md:relative bg-white md:bg-transparent w-full md:w-auto top-[62px] left-0 md:top-0 z-10 md:z-auto transition-all duration-300 ease-in ${
+          className={`md:flex md:space-x-3 lg:space-x-6 absolute md:relative bg-white md:bg-transparent w-full md:w-auto top-[62px] left-0 md:top-0 z-10 md:z-auto transition-all duration-300 ease-in ${
             isMenuOpen ? "block" : "hidden md:block"
           }`}
         >
           {pages.map((page) => (
             <li
               key={page.name}
-              className="border-b md:border-none py-2 md:py-0 md:px-4"
+              className="border-b md:border-none py-2 md:py-0 md:px-1 lg:px-2"
             >
               <Link
                 to={page.path}
@@ -74,7 +73,7 @@ function Navbar() {
                   setActivePage(page.path);
                   setIsMenuOpen(false);
                 }}
-                className={`block md:inline cursor-pointer hover:text-green-600 ${
+                className={`block md:inline cursor-pointer text-[13px] md:text-[14px] lg:text-[15px] hover:text-green-600 ${
                   activePage === page.path
                     ? "text-green-800 border-b-2 border-[#517008]"
                     : ""
@@ -86,14 +85,14 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Token Sale Button */}
-        <div className="hidden md:flex items-center space-x-16">
+        {/* Token Sale Button and Language Selector */}
+        <div className="hidden md:flex items-center space-x-4 lg:space-x-10">
           <Link to="/tokensale">
-            <button className="w-[127px] h-[44px] bg-[#92B344] text-white px-4 py-2 rounded-full">
+            <button className="w-[100px] lg:w-[120px] h-[36px] lg:h-[42px] bg-[#92B344] text-white px-4 py-1 rounded-full text-[12px] lg:text-[14px]">
               Token Sale
             </button>
           </Link>
-          <div className="flex items-center space-x-1 cursor-pointer">
+          <div className="flex items-center space-x-1 cursor-pointer text-[12px] lg:text-[14px]">
             <span>EN</span>
             <svg
               className="w-4 h-4"
