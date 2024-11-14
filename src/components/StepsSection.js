@@ -16,9 +16,9 @@ function StepsSection() {
         "Transactions are secured and automated via Smart Contracts.",
     },
     {
-      title: "Staking and Interest",
+      title: "Go Net Zero Together",
       description:
-        "Both parties receive their tokens or carbon credits instantly.",
+        "Everybody wins! Buyers get carbon credits, and the planet gets cleaner.",
     },
   ];
 

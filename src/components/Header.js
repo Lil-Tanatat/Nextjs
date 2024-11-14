@@ -3,6 +3,8 @@ import Web3 from "web3";
 import GIVPreSaleABI from "../ABI/GIVPreSaleABI.json";
 import USDTABI from "../ABI/USDTABI.json";
 import CoinToken from "../assets/images/Coin Token.png";
+import { motion } from "framer-motion";
+import Coin from "../assets/images/Coin.png";
 
 const presaleContractAddress = "0x21EAA23a845BbaC45b0Ce05CA091a0A78b716753";
 const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
@@ -22,7 +24,7 @@ const Header = () => {
 
   // Countdown Timer
   useEffect(() => {
-    const startDate = new Date();
+    const startDate = new Date("2024-10-30T23:59:59");
     const targetDate = new Date("2024-12-31T23:59:59");
 
     const countdown = setInterval(() => {
@@ -151,8 +153,8 @@ const Header = () => {
         setMessage("USDT approved successfully.");
       }
 
-      setMessage("Processing your transaction...");
-      // Send usdtAmount in wei to buyTokens function
+      setMessage("Processing your transaction..., Do not Close");
+
       const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
         .buyTokens(usdtAmountInWei)
@@ -205,118 +207,190 @@ const Header = () => {
   };
 
   return (
-    <section className="bg-[#92B344] min-h-screen p-10 flex flex-col md:flex-row justify-between items-center">
-      <div className="text-center md:text-left space-y-6 mb-6 md:mb-0">
-        <h1 className="text-[36px] md:text-[50px] font-semibold text-white leading-tight">
-          Join the Giver Token Pre-sale
-        </h1>
-        <p className="text-[18px] md:text-[24px] text-white font-medium">
-          Go Greener with Giver
-          <br />
-          in the future of sustainable carbon trading
-        </p>
-
-        <div className="space-y-4">
-          <div className="flex justify-center md:justify-start space-x-4 text-white text-sm font-semibold">
-            <span>Days</span>
-            <span>Hours</span>
-            <span>Minutes</span>
-            <span>Seconds</span>
-          </div>
-
-          <div className="flex justify-center md:justify-start space-x-4 items-center text-center">
-            {["days", "hours", "minutes", "seconds"].map((unit) => (
-              <div key={unit} className="flex flex-col items-center">
-                <div className="w-12 h-12 md:w-16 md:h-16 bg-white text-black text-xl md:text-2xl font-mono rounded-md flex items-center justify-center border border-gray-300">
-                  {timeLeft[unit]}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="relative mt-4 w-full h-4 bg-gray-200 rounded-full overflow-hidden">
-            <div
-              className="h-full bg-green-600"
-              style={{ width: `${progress}%` }}
-            ></div>
-          </div>
-
-          <p className="text-[16px] md:text-[20px] font-medium text-white">
-            Buy Giver Token with USDT only!
+    <>
+      <section className="bg-[#92B344] min-h-screen p-10 flex flex-col md:flex-row justify-between items-center">
+        <div className="text-center md:text-left space-y-6 mb-6 md:mb-0">
+          <h1 className="text-[36px] md:text-[50px] font-semibold text-white leading-tight">
+            Join the Giver Token Pre-sale
+          </h1>
+          <p className="text-[18px] md:text-[24px] text-white font-medium">
+            Go Greener with Giver
+            <br />
+            in the future of sustainable carbon trading
           </p>
 
-          {purchaseHistory.length === 0 && (
-            <div className="mt-4">
-              <input
-                type="number"
-                placeholder="Enter USDT Amount"
-                className="w-full md:w-1/2 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500"
-                value={usdtAmount}
-                onChange={(e) => setUsdtAmount(e.target.value)}
-              />
-              <button
-                onClick={buyTokens}
-                className="mt-2 w-full md:w-1/2 bg-green-500 hover:bg-green-600 text-white font-semibold rounded px-4 py-2"
-              >
-                Buy Tokens
-              </button>
+          <div className="space-y-4">
+            <div className="flex justify-center md:justify-start space-x-4 text-white text-sm font-semibold">
+              <span>Days</span>
+              <span>Hours</span>
+              <span>Minutes</span>
+              <span>Seconds</span>
             </div>
-          )}
+            <div className="flex justify-center md:justify-start space-x-4 items-center text-center">
+              {["days", "hours", "minutes", "seconds"].map((unit) => (
+                <div key={unit} className="flex flex-col items-center">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white text-black text-xl md:text-2xl font-mono rounded-md flex items-center justify-center border border-gray-300">
+                    {timeLeft[unit]}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="relative mt-4 w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                className="h-full bg-green-600"
+                style={{ width: `${progress}%` }}
+              ></div>
+            </div>
+            <p className="text-[16px] md:text-[20px] font-medium text-white">
+              Buy Giver Token with USDT only!
+            </p>
+            <a href="#buy-section">
+              <div
+                className="relative mt-6 md:mt-8 flex items-center"
+                id="buy-section"
+              >
+                <motion.img
+                  src={Coin}
+                  alt="Coin"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[79px] lg:h-[79px] relative z-10"
+                />
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-green-950 text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
+                >
+                  Buy Tokens
+                </motion.button>
+              </div>
+            </a>
+          </div>
+        </div>
 
+        <motion.div
+          animate={{
+            opacity: 1,
+            x: ["0%", "1%", "0%"],
+            y: ["0%", "-2%", "0%"],
+          }}
+          transition={{
+            duration: 3,
+            ease: "easeInOut",
+            repeat: Infinity,
+            repeatType: "loop",
+          }}
+          className="w-full lg:w-1/2 p-4 mt-8 lg:mt-0"
+        >
+          <img
+            src={CoinToken}
+            alt="Coin"
+            className="w-100 h-100 md:w-100 md:h-100 object-contain mx-auto"
+          />
+        </motion.div>
+
+        {/* <div className="relative w-full md:w-1/2 flex justify-center items-center">
+          <img
+            src={CoinToken}
+            alt="Coin"
+            className="w-100 h-100 md:w-100 md:h-100 object-contain"
+          />
+        </div> */}
+      </section>
+      <div className="bg-[#92B344]  px-10 pb-10 items-center">
+        <p className="text-[24px] md:text-[20px] text-white font-bold mb-4">
+          Join Giver Presale Follow these steps :
+        </p>
+        <div className="connect">
+          <p className="text-[14px] md:text-[16px] font-medium text-white">
+            1) Connect Your MetaMask Wallet :
+          </p>
           <button
             onClick={connectMetaMask}
-            className="mt-2 w-full md:w-1/2 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded px-4 py-2"
+            className="my-4 w-full md:w-1/4  bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold rounded px-4 py-2 ml-8"
           >
             {account ? "Wallet Connected" : "Connect MetaMask"}
           </button>
-
-          {message && (
-            <p className="text-white text-sm mt-2 text-center">{message}</p>
-          )}
-
-          <h2 className="mt-8 text-white font-semibold">Purchase History</h2>
-          {purchaseHistory.length > 0 ? (
-            <ul className="mt-2 space-y-2">
-              {purchaseHistory.map((purchase, index) => (
-                <li key={index} className="text-white text-sm">
-                  {`Amount: ${purchase.tokenAmount} Giver + ${(
-                    (purchase.tokenAmount * 20) /
-                    100
-                  ).toFixed(2)} Bonus, Unlock Time: ${new Date(
-                    purchase.unlockTime * 1000
-                  ).toLocaleString()}, Claimed: ${
-                    purchase.claimed ? "Yes" : "No"
-                  }`}
-                  {!purchase.claimed &&
-                    Math.floor(Date.now() / 1000) > purchase.unlockTime && (
-                      <button
-                        onClick={() =>
-                          claimTokens(purchase.unlockTime, purchase.claimed)
-                        }
-                        className="ml-4 bg-green-500 hover:bg-green-600 text-white font-semibold rounded px-2 py-1"
-                      >
-                        Claim
-                      </button>
-                    )}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-white text-sm mt-2">
-              No purchase history available.
-            </p>
-          )}
         </div>
-      </div>
+        {account ? (
+          <>
+            {" "}
+            <p className="text-[14px] md:text-[16px] font-medium text-white">
+              2) Check Your MetaMask Account :
+            </p>
+            <div className="text-white ml-8 my-4">
+              Your MetaMask Account : {account}
+            </div>
+            {purchaseHistory.length === 0 && (
+              <div className="mt-2">
+                <div>
+                  <p className="text-[14px] md:text-[16px] font-medium text-white">
+                    3) Enter USDT Amount :
+                  </p>
+                  <input
+                    type="number"
+                    placeholder="Enter USDT Amount"
+                    className="w-full md:w-1/4 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500 ml-8 my-4"
+                    value={usdtAmount}
+                    onChange={(e) => setUsdtAmount(e.target.value)}
+                  />
+                </div>
+                <div className="mt-2">
+                  <p className="text-[14px] md:text-[16px] font-medium text-white my-4">
+                    4) Click Buy Tokens Button :
+                  </p>
+                  <button
+                    onClick={buyTokens}
+                    className=" mt-1 w-full md:w-1/4 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-4 py-2 ml-8"
+                  >
+                    Buy Tokens
+                  </button>
+                </div>
+              </div>
+            )}
+            {purchaseHistory.length > 0 && (
+              <div>
+                <p className="text-[14px] md:text-[16px] font-medium text-white">
+                  3) You Already Have Purchased Tokens Please Wait To Claim On
+                  Release Date & Time :
+                </p>
+                <ul className="mt-4 space-y-2 ml-8">
+                  {purchaseHistory.map((purchase, index) => (
+                    <li key={index} className="text-white">
+                      {`Amount: ${
+                        purchase.tokenAmount / 1000000000000000000
+                      } GIV + ${
+                        (purchase.tokenAmount * 20) / 100 / 1000000000000000000
+                      } Bonus, Release Date & Time : ${new Date(
+                        purchase.unlockTime * 1000
+                      ).toLocaleString()}`}
+                      {!purchase.claimed &&
+                        Math.floor(Date.now() / 1000) > purchase.unlockTime && (
+                          <button
+                            onClick={() =>
+                              claimTokens(purchase.unlockTime, purchase.claimed)
+                            }
+                            className="ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-2 py-1"
+                          >
+                            Claim
+                          </button>
+                        )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </>
+        ) : null}
 
-      <div className="relative w-full md:w-1/2 flex justify-center items-center">
-        <img
-          src={CoinToken}
-          alt="Coin"
-          className="w-100 h-100 md:w-100 md:h-100 object-contain"
-        />
+        {message && (
+          <p className="text-red-600 text-xl font-semibold mt-8 text-center">
+            System Message : {message}
+          </p>
+        )}
       </div>
-    </section>
+    </>
   );
 };
 
