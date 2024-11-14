@@ -43,32 +43,40 @@ function DownloadSection() {
           <ul className="text-left space-y-4">
             <li className="flex flex-col items-left">
               <span className="font-medium">1. White Paper EN Version</span>
-              <button className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px]">
-                Download whitepaper
-              </button>
+              <a
+                href="/assets/pdf/whitepaper-en.pdf"
+                download="whitepaper-en.pdf"
+                className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px] transition-colors text-center"
+              >
+                Download Whitepaper
+              </a>
             </li>
             <li className="flex flex-col items-left">
               <span className="font-medium">2. White Paper TH Version</span>
+              <a
+                href="/assets/pdf/whitepaper-th.pdf"
+                download="whitepaper-th.pdf"
+                className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px] transition-colors text-center"
+              >
+                Download Whitepaper
+              </a>
+            </li>
+            {/* <li className="flex flex-col items-left">
+              <span className="font-medium">
+                3. How Our Platform work EN Version (Coming Soon)
+              </span>
               <button className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px]">
-                Download whitepaper
+                Download Whitepaper
               </button>
             </li>
             <li className="flex flex-col items-left">
               <span className="font-medium">
-                3. How Our Platform work EN Version
+                4. How Our Platform work TH Version (Coming Soon)
               </span>
               <button className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px]">
-                Download whitepaper
+                Download Whitepaper
               </button>
-            </li>
-            <li className="flex flex-col items-left">
-              <span className="font-medium">
-                4. How Our Platform work TH Version
-              </span>
-              <button className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px]">
-                Download whitepaper
-              </button>
-            </li>
+            </li> */}
           </ul>
         </div>
       </div>
