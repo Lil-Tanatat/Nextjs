@@ -90,15 +90,19 @@ function BenefitsSection() {
               />
             </div>
             <h3 className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#517008] mb-4 px-4 lg:px-10">
-              Staking Pool
+              Net Zero Together
             </h3>
             <p className="text-[14px] sm:text-[16px] font-normal mb-6 leading-relaxed px-4 lg:px-10">
-              Giver Token offers holders the opportunity to stake their tokens
-              on the platform, earning additional rewards by supporting the
-              network and increasing platform liquidity. Staking is a way to
-              generate passive income for token holders. The more you
-              participate, the greater the rewards you can earn.
+              Giver Token is committed to empowering individuals and communities
+              to join the movement toward a net-zero future. By holding and
+              supporting Giver Token, you’re part of a community dedicated to
+              reducing carbon emissions and advancing environmental
+              sustainability. Together, we can make a meaningful impact,
+              contributing to a cleaner planet for future generations. Join us
+              in the journey towards a net-zero world—every step brings us
+              closer to a sustainable future.
             </p>
+
             <motion.button
               className="ml-0 lg:ml-10 px-4 py-2 rounded border border-black hover:bg-green-700 hover:text-white transition"
               whileHover={{ scale: 1.05 }}
