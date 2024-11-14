@@ -8,7 +8,12 @@ import Coin from "../assets/images/Coin.png";
 
 const presaleContractAddress = "0x21EAA23a845BbaC45b0Ce05CA091a0A78b716753";
 const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
-
+const formatAccount = (account) => {
+  if (window.innerWidth < 500) {
+    return `${account.slice(0, 6)}...${account.slice(-6)}`;
+  }
+  return account;
+};
 const Header = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
@@ -308,19 +313,18 @@ const Header = () => {
           </p>
           <button
             onClick={connectMetaMask}
-            className="my-4 w-full md:w-1/4  bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold rounded px-4 py-2 ml-8"
+            className="my-4 w-full md:w-1/4  bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold rounded px-4 py-2 md:ml-8"
           >
             {account ? "Wallet Connected" : "Connect MetaMask"}
           </button>
         </div>
         {account ? (
           <>
-            {" "}
             <p className="text-[14px] md:text-[16px] font-medium text-white">
               2) Check Your MetaMask Account :
             </p>
-            <div className="text-white ml-8 my-4">
-              Your MetaMask Account : {account}
+            <div className="text-white md:ml-8 my-4">
+              Your MetaMask Account : {formatAccount(account)}
             </div>
             {purchaseHistory.length === 0 && (
               <div className="mt-2">
@@ -331,7 +335,7 @@ const Header = () => {
                   <input
                     type="number"
                     placeholder="Enter USDT Amount"
-                    className="w-full md:w-1/4 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500 ml-8 my-4"
+                    className="w-full md:w-1/4 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500 md:ml-8 my-4"
                     value={usdtAmount}
                     onChange={(e) => setUsdtAmount(e.target.value)}
                   />
@@ -342,7 +346,7 @@ const Header = () => {
                   </p>
                   <button
                     onClick={buyTokens}
-                    className=" mt-1 w-full md:w-1/4 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-4 py-2 ml-8"
+                    className=" mt-1 w-full md:w-1/4 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-4 py-2 md:ml-8"
                   >
                     Buy Tokens
                   </button>
@@ -355,7 +359,7 @@ const Header = () => {
                   3) You Already Have Purchased Tokens Please Wait To Claim On
                   Release Date & Time :
                 </p>
-                <ul className="mt-4 space-y-2 ml-8">
+                <ul className="mt-4 space-y-2 md:ml-8">
                   {purchaseHistory.map((purchase, index) => (
                     <li key={index} className="text-white">
                       {`Amount: ${
@@ -371,7 +375,7 @@ const Header = () => {
                             onClick={() =>
                               claimTokens(purchase.unlockTime, purchase.claimed)
                             }
-                            className="ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-2 py-1"
+                            className="md:ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-2 py-1"
                           >
                             Claim
                           </button>
