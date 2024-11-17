@@ -1,34 +1,37 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import Logo from "../assets/images/Logo Giver.png";
-import { motion } from "framer-motion";
 
 function Navbar() {
   const location = useLocation();
+  const { t, i18n } = useTranslation();
   const [activePage, setActivePage] = useState(location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const pages = [
-    { name: "Home", path: "/" },
-    { name: "Service", path: "/coming-soon" },
-    { name: "Pages", path: "/coming-soon" },
-    { name: "Presale", path: "/tokensale" },
-    { name: "Blog", path: "/coming-soon" },
-    { name: "About Us", path: "/aboutus" },
+    { name: t("Home"), path: "/" },
+    { name: t("Service"), path: "/service" },
+    { name: t("Pages"), path: "/pages" },
+    { name: t("Presale"), path: "/presale" },
+    { name: t("Blog"), path: "/blog" },
+    { name: t("AboutUs"), path: "/aboutus" },
   ];
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <nav className="bg-white p-0 shadow-md">
       <div className="container mx-auto flex justify-between items-center h-[62px] px-4 md:px-6 lg:px-8">
         {/* Logo */}
-        <Link to="/">
-          <div className="flex items-center space-x-1 md:space-x-2">
-            <img src={Logo} alt="Logo Giver" className="w-[45px] h-[45px]" />
-            <div className="text-[24px] md:text-[28px] lg:text-[32px] font-semibold text-[#517008]">
-              Giver
-            </div>
+        <div className="flex items-center space-x-1 md:space-x-2">
+          <img src={Logo} alt="Logo Giver" className="w-[45px] h-[45px]" />
+          <div className="text-[24px] md:text-[28px] lg:text-[32px] font-semibold text-[#517008]">
+            Giver
           </div>
-        </Link>
+        </div>
 
         {/* Menu Icon for Mobile */}
         <div className="md:hidden">
@@ -63,9 +66,9 @@ function Navbar() {
             isMenuOpen ? "block" : "hidden md:block"
           }`}
         >
-          {pages.map((page) => (
+          {pages.map((page, index) => (
             <li
-              key={page.name}
+              key={index}
               className="border-b md:border-none py-2 md:py-0 md:px-1 lg:px-2"
             >
               <Link
@@ -86,32 +89,23 @@ function Navbar() {
           ))}
         </ul>
 
-        {/* Token Sale Button and Language Selector */}
+        {/* Token Sale Button and Language Dropdown */}
         <div className="hidden md:flex items-center space-x-4 lg:space-x-10">
           <Link to="/tokensale">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-[100px] lg:w-[120px] h-[36px] lg:h-[42px] bg-[#92B344] hover:bg-yellow-600 text-white px-4 py-1 rounded-full text-[12px] lg:text-[14px]"
-            >
-              Join Presale
-            </motion.button>
+            <button className="w-[100px] lg:w-[120px] h-[36px] lg:h-[42px] bg-[#92B344] text-white px-4 py-1 rounded-full text-[12px] lg:text-[14px]">
+              {t("TokenSale")}
+            </button>
           </Link>
-          <div className="flex items-center space-x-1 cursor-pointer text-[12px] lg:text-[14px]">
-            <span>EN</span>
-            <svg
-              className="w-4 h-4"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </div>
+
+          {/* Language Dropdown */}
+          <select
+            onChange={(e) => changeLanguage(e.target.value)}
+            className="text-[12px] lg:text-[14px] bg-white border border-gray-300 p-2 rounded-md"
+            defaultValue={i18n.language}
+          >
+            <option value="en">🇬🇧 EN</option>
+            <option value="th">🇹🇭 TH</option>
+          </select>
         </div>
       </div>
     </nav>

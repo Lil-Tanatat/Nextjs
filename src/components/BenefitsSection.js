@@ -1,10 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next"; // Import the useTranslation hook
 import Carbon1 from "../assets/images/Carbon Credit 1.png";
 import Carbon2 from "../assets/images/Carbon Credit 2.png";
 import Leaf from "../assets/images/leaf.png";
 
 function BenefitsSection() {
+  const { t } = useTranslation(); // Initialize the translation hook
+
   // Animation variants for fade and float effects
   const fadeInScale = {
     hidden: { opacity: 0, scale: 0.9 },
@@ -22,7 +25,8 @@ function BenefitsSection() {
     <section className="py-16 bg-white">
       <div className="w-full flex flex-col items-center">
         <h2 className="text-[24px] sm:text-[32px] md:text-[40px] font-bold text-center mb-12">
-          Benefits of the <span className="text-[#517008]">Carbon Credit</span>
+          {t("Benefits of the")}{" "}
+          <span className="text-[#517008]">{t("Carbon Credit")}</span>
         </h2>
 
         {/* Benefit 1 - Text Left, Image Right */}
@@ -35,35 +39,33 @@ function BenefitsSection() {
               </div>
               <motion.img
                 src={Leaf}
-                alt="Leaf"
+                alt={t("Leaf")}
                 className="absolute top-[-10px] sm:top-[-28px] left-[-20px] sm:left-[-40px] w-[50px] sm:w-[105px] h-[50px] sm:h-[105px] transform rotate-[-30deg]"
                 variants={float}
                 animate="animate"
               />
             </div>
             <h3 className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#517008] mb-4 px-4 lg:px-10">
-              Carbon Credit Trading
+              {t("Carbon Credit Trading")}
             </h3>
             <p className="text-[14px] sm:text-[16px] font-normal mb-6 leading-relaxed px-4 lg:px-10">
-              The Giver Token platform streamlines secure, transparent carbon
-              credit trading via blockchain, enabling global transactions
-              without geographical limits. It connects users to the growing
-              carbon credit market, helping reduce emissions and support
-              certified carbon reduction projects.
+              {t(
+                "The Giver Token platform streamlines secure, transparent carbon credit trading via blockchain, enabling global transactions without geographical limits. It connects users to the growing carbon credit market, helping reduce emissions and support certified carbon reduction projects."
+              )}
             </p>
             <motion.button
               className="mr-0 lg:mr-10 px-4 py-2 rounded border border-black hover:bg-green-700 hover:text-white transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Learn more
+              {t("Learn more")}
             </motion.button>
           </div>
 
           {/* Right Image Section */}
           <motion.img
             src={Carbon1}
-            alt="Carbon Credit Trading"
+            alt={t("Carbon Credit Trading")}
             className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-auto max-h-[463px] object-cover shadow-lg mx-0"
             variants={fadeInScale}
             initial="hidden"
@@ -82,7 +84,7 @@ function BenefitsSection() {
               </div>
               <motion.img
                 src={Leaf}
-                alt="Leaf"
+                alt={t("Leaf")}
                 className="absolute top-[-10px] sm:top-[-28px] right-[-20px] sm:right-[-40px] w-[50px] sm:w-[105px] h-[50px] sm:h-[105px]"
                 style={{ rotate: "100deg" }}
                 variants={float}
@@ -90,32 +92,26 @@ function BenefitsSection() {
               />
             </div>
             <h3 className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#517008] mb-4 px-4 lg:px-10">
-              Net Zero Together
+              {t("Staking Pool")}
             </h3>
             <p className="text-[14px] sm:text-[16px] font-normal mb-6 leading-relaxed px-4 lg:px-10">
-              Giver Token is committed to empowering individuals and communities
-              to join the movement toward a net-zero future. By holding and
-              supporting Giver Token, you’re part of a community dedicated to
-              reducing carbon emissions and advancing environmental
-              sustainability. Together, we can make a meaningful impact,
-              contributing to a cleaner planet for future generations. Join us
-              in the journey towards a net-zero world—every step brings us
-              closer to a sustainable future.
+              {t(
+                "Giver Token offers holders the opportunity to stake their tokens on the platform, earning additional rewards by supporting the network and increasing platform liquidity. Staking is a way to generate passive income for token holders. The more you participate, the greater the rewards you can earn."
+              )}
             </p>
-
             <motion.button
               className="ml-0 lg:ml-10 px-4 py-2 rounded border border-black hover:bg-green-700 hover:text-white transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Learn more
+              {t("Learn more")}
             </motion.button>
           </div>
 
           {/* Left Image Section */}
           <motion.img
             src={Carbon2}
-            alt="Staking Pool"
+            alt={t("Staking Pool")}
             className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-auto max-h-[463px] object-cover shadow-lg mx-0"
             variants={fadeInScale}
             initial="hidden"

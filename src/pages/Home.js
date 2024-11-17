@@ -1,17 +1,20 @@
 // src/pages/Home.js
 import React, { useEffect } from "react";
 import AOS from "aos";
-import "aos/dist/aos.css"; // Import AOS styles
+import "aos/dist/aos.css";
 import HeroSection from "../components/HeroSection";
 import BenefitsSection from "../components/BenefitsSection";
 import StepsSection from "../components/StepsSection";
 import TokenomicsSection from "../components/TokenomicsSection";
 import RoadmapSection from "../components/RoadmapSection";
 import DownloadSection from "../components/DownloadSection";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+  const { t } = useTranslation();
+
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS with desired duration
+    AOS.init({ duration: 1000 });
   }, []);
 
   return (

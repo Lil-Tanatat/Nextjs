@@ -13,9 +13,6 @@ function RoadmapSection() {
             className="w-full max-w-[1360px] h-auto"
           />
         </div>
-        <p className="mt-10 font-semibold text-[#053B25] text-[24px] md:text-[32px]">
-          *Privilege for Pre-sale Customer
-        </p>
       </div>
     </section>
   );
