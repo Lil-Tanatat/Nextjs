@@ -57,7 +57,7 @@ function TokenomicsSection() {
             </motion.div>
             <div className="absolute inset-0 flex flex-col items-center justify-center">
               <motion.p
-                className="text-[28px] md:text-[40px] font-semibold"
+                className="text-[20px] md:text-[40px] font-semibold"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -65,7 +65,7 @@ function TokenomicsSection() {
                 {t("Total Supply")}
               </motion.p>
               <motion.p
-                className="text-[28px] md:text-[40px] font-semibold mt-10"
+                className=" text-[20px] md:text-[40px] font-semibold mt-10"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
@@ -73,7 +73,7 @@ function TokenomicsSection() {
                 5,000,000,000
               </motion.p>
               <motion.p
-                className="text-[28px] md:text-[40px] font-semibold"
+                className=" text-[20px] md:text-[40px] font-semibold"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
@@ -154,7 +154,7 @@ function TokenomicsSection() {
                 className="w-[50px] md:w-[63px] h-[50px] md:h-[68px]"
               />
               <p className="text-[20px] md:text-[20px] font-semibold">
-               {t("Burn Target 40% =")}
+                {t("Burn Target 40% =")}
               </p>
             </motion.div>
             <motion.p
