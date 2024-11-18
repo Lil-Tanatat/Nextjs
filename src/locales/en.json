@@ -83,5 +83,11 @@
     "benefit3_description": "on the Giver platform one quarter before regular token holders.",
     "token_name": "Giver",
     "token_presale": "Token Presale"
+  },
+  "investmentFunds": {
+    "title": "Source of investment funds",
+    "description": "The funds will be used to support small-scale farmers in joining the T-Ver program to meet carbon credit standards. We will then use these funds to purchase carbon credits and sell them on our platform.",
+    "photo1Alt": "Children in forest",
+    "photo2Alt": "Farm landscape"
   }
 }

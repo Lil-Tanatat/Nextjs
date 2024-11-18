@@ -1,11 +1,13 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import Photo_1 from "../assets/images/Photo_1.png";
 import Photo_2 from "../assets/images/Photo_2.png";
 
 const InvestmentFundsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { t } = useTranslation();
 
   return (
     <section className="py-12 px-4 md:px-0" ref={ref}>
@@ -17,7 +19,7 @@ const InvestmentFundsSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
-          Source of investment funds
+          {t("investmentFunds.title")} {/* Use the translation key */}
         </motion.h2>
 
         {/* Description */}
@@ -27,27 +29,30 @@ const InvestmentFundsSection = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          The funds will be used to support small-scale farmers in joining the Tier program to meet carbon credit standards.
-          We will then use these funds to purchase carbon credits and sell them on our platform.
+          {t("investmentFunds.description")} {/* Use the translation key */}
         </motion.p>
       </div>
-      
+
       {/* Image Grid */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-6">
         <motion.img
           src={Photo_1}
-          alt="Children in forest"
+          alt={t("investmentFunds.photo1Alt")}
           className="w-full h-auto rounded-lg shadow-lg"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+          animate={
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+          }
           transition={{ duration: 0.6, delay: 0.4 }}
         />
         <motion.img
           src={Photo_2}
-          alt="Farm landscape"
+          alt={t("investmentFunds.photo2Alt")}
           className="w-full h-auto rounded-lg shadow-lg"
           initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+          animate={
+            isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+          }
           transition={{ duration: 0.6, delay: 0.6 }}
         />
       </div>
