@@ -50,5 +50,13 @@
   "White Paper TH Version": "White Paper TH Version",
   "How Our Platform work EN Version": "How Our Platform work EN Version",
   "How Our Platform work TH Version": "How Our Platform work TH Version",
-  "Download": "Download"
+  "Download": "Download",
+  "about_us": {
+    "title": "About Us",
+    "section_title_1": "It Is A Critical Component Of Modern Business",
+    "mission_vision_title": "Mission & Vision",
+    "mission_vision_content": "Our team recognizes the issue of global warming and wants to be part of the movement towards achieving net-zero emissions. However, the current carbon credit trading system still uses paper and plastic money, which generates significant carbon emissions during production. Therefore, we have adopted blockchain technology for carbon credit trading to reduce the use of fiat currency.",
+    "section_title_2": "Partner & Collaborators",
+    "partner_content": "Our partners are a team of experts in waste management, both on land and at sea. They have identified ways to reduce and offset carbon dioxide emissions. The development team and our partners have therefore collaborated to create this project."
+  }
 }
