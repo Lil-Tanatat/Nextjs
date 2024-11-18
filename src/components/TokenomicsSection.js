@@ -127,7 +127,7 @@ function TokenomicsSection() {
                   "Those who purchase tokens during the Presale will receive a 20% bonus on their purchase, but the tokens must be locked for 2 years via a Vesting Smart Contract."
                 )}
               </motion.li>
-              <motion.li
+              {/* <motion.li
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
@@ -135,7 +135,7 @@ function TokenomicsSection() {
                 {t(
                   "Buyers during the ICO phase will have early access to the Stake Pool and can earn an interest rate of 25%."
                 )}
-              </motion.li>
+              </motion.li> */}
             </ul>
           </div>
 
