@@ -11,10 +11,10 @@ function Navbar() {
 
   const pages = [
     { name: t("Home"), path: "/" },
-    { name: t("Service"), path: "/service" },
-    { name: t("Pages"), path: "/pages" },
-    { name: t("Presale"), path: "/presale" },
-    { name: t("Blog"), path: "/blog" },
+    { name: t("Service"), path: "/coming-soon" },
+    { name: t("Pages"), path: "/coming-soon" },
+    { name: t("Presale"), path: "/tokensale" },
+    { name: t("Blog"), path: "/coming-soon" },
     { name: t("AboutUs"), path: "/aboutus" },
   ];
 

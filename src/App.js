@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import AboutUs from "./pages/Aboutus";
 import TokenSale from "./pages/TokenSale";
 import "./i18n";
+import ComingSoon from "./pages/Comingsoon";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/tokensale" element={<TokenSale />} />
+        <Route path="coming-soon" element={<ComingSoon />} />
       </Routes>
       <Footer />
     </Router>

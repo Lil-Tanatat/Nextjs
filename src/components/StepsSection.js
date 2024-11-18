@@ -22,10 +22,8 @@ function StepsSection() {
       ),
     },
     {
-      title: t("Staking and Interest"),
-      description: t(
-        "Both parties receive their tokens or carbon credits instantly."
-      ),
+      title: t("Net Zero Together 2"),
+      description: t("Net Zero Together 2 Description"),
     },
   ];
 
