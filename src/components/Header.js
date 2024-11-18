@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 import Coin from "../assets/images/Coin.png";
 import { useTranslation } from "react-i18next";
 
-const presaleContractAddress = "0x21EAA23a845BbaC45b0Ce05CA091a0A78b716753";
-const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
+const presaleContractAddress = "0xA66893715878D6fC3DA21e47168CBa61eF1b8970";
+const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
 const formatAccount = (account) => {
   if (window.innerWidth < 500) {
     return `${account.slice(0, 6)}...${account.slice(-6)}`;
