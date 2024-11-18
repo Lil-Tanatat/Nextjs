@@ -1,21 +1,34 @@
-import React, { useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import React, { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import BG1 from "../assets/images/BG_1.png";
+import { useTranslation } from "react-i18next";
 
 const benefits = [
-  { title: "20% Bonus", description: "on the total number of tokens purchased during this Presale period." },
-  { title: "Exclusive Access to Stake Pool", description: "one quarter ahead of ICO participants, with a special interest rate of 29% per annum." },
-  { title: "Priority Access to Carbon Credit Trading", description: "on the Giver platform one quarter before regular token holders." },
+  {
+    titleKey: "benefits.benefit1_title",
+    descriptionKey: "benefits.benefit1_description",
+  },
+  {
+    titleKey: "benefits.benefit2_title",
+    descriptionKey: "benefits.benefit2_description",
+  },
+  {
+    titleKey: "benefits.benefit3_title",
+    descriptionKey: "benefits.benefit3_description",
+  },
 ];
 
 const Benefits = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
+  const { t } = useTranslation();
 
   return (
-    <div className="py-10 mt-20 px-4 md:px-8 lg:px-16">
+    <div className="py-10 mt-20 px-4 md:px-0 lg:px-0">
       <h2 className="text-center text-[24px] md:text-[32px] lg:text-[36px] font-bold mb-10 md:mb-16">
-        Benefits of Participating in the <span className="text-[#92B344]">Giver</span> Token Presale
+        {t("benefits.benefits_title")}{" "}
+        <span className="text-[#92B344]">{t("benefits.token_name")}</span>{" "}
+        {t("benefits.token_presale")}
       </h2>
 
       <section
@@ -30,13 +43,17 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <motion.div
               key={index}
-              className="bg-white bg-opacity-80 shadow-lg p-6 rounded-md w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[350px] h-auto text-center"
+              className="bg-white bg-opacity-80 shadow-lg p-2 rounded-md w-full max-w-[300px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-[350px] h-auto text-center"
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <h3 className="mt-2 text-[20px] md:text-[24px] lg:text-[28px] font-semibold">{benefit.title}</h3>
-              <p className="text-[14px] md:text-[16px] lg:text-[18px] font-normal mt-4">{benefit.description}</p>
+              <h3 className="mt-2 text-[20px] md:text-[24px] lg:text-[28px] font-semibold">
+                {t(benefit.titleKey)}
+              </h3>
+              <p className="text-[14px] md:text-[16px] lg:text-[18px] font-normal mt-4">
+                {t(benefit.descriptionKey)}
+              </p>
             </motion.div>
           ))}
         </div>

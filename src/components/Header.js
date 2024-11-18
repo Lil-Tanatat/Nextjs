@@ -5,6 +5,7 @@ import USDTABI from "../ABI/USDTABI.json";
 import CoinToken from "../assets/images/Coin Token.png";
 import { motion } from "framer-motion";
 import Coin from "../assets/images/Coin.png";
+import { useTranslation } from "react-i18next";
 
 const presaleContractAddress = "0x21EAA23a845BbaC45b0Ce05CA091a0A78b716753";
 const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
@@ -211,21 +212,23 @@ const Header = () => {
     }
   };
 
+  const { t } = useTranslation();
+
   return (
     <>
       <section className="bg-[#92B344] min-h-screen p-10 flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left space-y-6 mb-6 md:mb-0">
           <h1 className="text-[36px] md:text-[50px] font-semibold text-white leading-tight">
-            Join the Giver Token Pre-sale
+            {t("presale.title")}
           </h1>
           <p className="text-[18px] md:text-[24px] text-white font-medium">
-            Go Greener with Giver
+            {t("presale.slogan1")}
             <br />
-            in the future of sustainable carbon trading
+            {t("presale.slogan2")}
           </p>
 
           <div className="space-y-4">
-            <div className="flex justify-center md:justify-start space-x-4 text-white text-sm font-semibold">
+            <div className="flex justify-center md:justify-start space-x-11 text-white text-sm font-semibold">
               <span>Days</span>
               <span>Hours</span>
               <span>Minutes</span>
@@ -247,7 +250,7 @@ const Header = () => {
               ></div>
             </div>
             <p className="text-[16px] md:text-[20px] font-medium text-white">
-              Buy Giver Token with USDT only!
+              {t("presale.buy_with")}
             </p>
             <a href="#buy-section">
               <div
@@ -305,11 +308,11 @@ const Header = () => {
       </section>
       <div className="bg-[#92B344]  px-10 pb-10 items-center">
         <p className="text-[24px] md:text-[20px] text-white font-bold mb-4">
-          Join Giver Presale Follow these steps :
+          {t("presale.join_us")} :
         </p>
         <div className="connect">
           <p className="text-[14px] md:text-[16px] font-medium text-white">
-            1) Connect Your MetaMask Wallet :
+            1) {t("presale.connect_metamask")}:
           </p>
           <button
             onClick={connectMetaMask}
@@ -321,16 +324,16 @@ const Header = () => {
         {account ? (
           <>
             <p className="text-[14px] md:text-[16px] font-medium text-white">
-              2) Check Your MetaMask Account :
+              2) {t("presale.check_metamask")} :
             </p>
             <div className="text-white md:ml-8 my-4">
-              Your MetaMask Account : {formatAccount(account)}
+              {t("presale.your_account")} : {formatAccount(account)}
             </div>
             {purchaseHistory.length === 0 && (
               <div className="mt-2">
                 <div>
                   <p className="text-[14px] md:text-[16px] font-medium text-white">
-                    3) Enter USDT Amount :
+                    3) {t("presale.enter_usdt")} (0.01 USDT = 1 Giver) :
                   </p>
                   <input
                     type="number"
@@ -342,13 +345,13 @@ const Header = () => {
                 </div>
                 <div className="mt-2">
                   <p className="text-[14px] md:text-[16px] font-medium text-white my-4">
-                    4) Click Buy Tokens Button :
+                    4) {t("presale.click_buy")} :
                   </p>
                   <button
                     onClick={buyTokens}
                     className=" mt-1 w-full md:w-1/4 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-4 py-2 md:ml-8"
                   >
-                    Buy Tokens
+                    {t("presale.buy_button")}
                   </button>
                 </div>
               </div>
@@ -356,8 +359,7 @@ const Header = () => {
             {purchaseHistory.length > 0 && (
               <div>
                 <p className="text-[14px] md:text-[16px] font-medium text-white">
-                  3) You Already Have Purchased Tokens Please Wait To Claim On
-                  Release Date & Time :
+                  3) {t("presale.purchased")} :
                 </p>
                 <ul className="mt-4 space-y-2 md:ml-8">
                   {purchaseHistory.map((purchase, index) => (

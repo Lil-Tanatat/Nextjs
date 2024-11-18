@@ -58,5 +58,45 @@
     "mission_vision_content": "Our team recognizes the issue of global warming and wants to be part of the movement towards achieving net-zero emissions. However, the current carbon credit trading system still uses paper and plastic money, which generates significant carbon emissions during production. Therefore, we have adopted blockchain technology for carbon credit trading to reduce the use of fiat currency.",
     "section_title_2": "Partner & Collaborators",
     "partner_content": "Our partners are a team of experts in waste management, both on land and at sea. They have identified ways to reduce and offset carbon dioxide emissions. The development team and our partners have therefore collaborated to create this project."
+  },
+  "presale": {
+    "title": "Join the Giver Token Pre-sale",
+    "slogan1": "Go Greener with Giver",
+    "slogan2": "in the future of sustainable carbon trading",
+    "buy_with": "Buy Giver Token with USDT only!",
+    "join_us": "Join Giver Presale Follow these steps",
+    "connect_metamask": "Connect Your MetaMask Wallet ",
+    "check_metamask": "Check Your MetaMask Account ",
+    "your_account": "Your MetaMask Account",
+    "purchased": "You Already Have Purchased Tokens Please Wait To Claim On Release Date & Time",
+    "enter_usdt": "Enter USDT Amount",
+    "click_buy": "Click To Buy Giver With USDT",
+    "buy_button": "Buy Tokens"
+  },
+  "benefits": {
+    "benefits_title": "Benefits of Participating in the",
+    "benefit1_title": "20% Bonus",
+    "benefit1_description": "on the total number of tokens purchased during this Presale period.",
+    "benefit2_title": "Exclusive Access to Our Platform",
+    "benefit2_description": "By joining our pre-sale, you will automatically be added to the whitelist automatically",
+    "benefit3_title": "Priority Access to Carbon Credit Trading",
+    "benefit3_description": "on the Giver platform one quarter before regular token holders.",
+    "token_name": "Giver",
+    "token_presale": "Token Presale"
+  },
+  "investmentFunds": {
+    "title": "Source of investment funds",
+    "description": "The funds will be used to support small-scale farmers in joining the T-Ver program to meet carbon credit standards. We will then use these funds to purchase carbon credits and sell them on our platform.",
+    "photo1Alt": "Children in forest",
+    "photo2Alt": "Farm landscape"
+  },
+  "faq": {
+    "faq_title": "Presale FAQ about Fundraising and Tokens",
+    "faq1_question": "What will the funds raised be used for?",
+    "faq1_answer": "The funds will be used to purchase carbon credits from farmers and provide financial support to farmers who have not yet joined the T-VER project. This aims to promote greenhouse gas reduction and create sustainability for farming communities.",
+    "faq2_question": "Why are the tokens locked for 2 years?",
+    "faq2_answer": "Since this project requires considerable time and coordination with multiple parties, we are locking the tokens for 2 years to ensure stability in the project's execution. During this 2-year period, the tokens will remain locked, and investors will receive a 20% bonus when the tokens are unlocked.",
+    "faq3_question": "What are the special benefits for those who purchase tokens during the Pre-sale?",
+    "faq3_answer": "Those who purchase tokens during the Pre-sale will receive several exclusive benefits, including:\n • Access to the Stake Pool 3 months before IDO investors\n • Early access to the Carbon Credit trading platform 3 months ahead of general investors\n • Their names will be recorded in the Pre-sale database, giving them faster access to additional special privileges in the future."
   }
 }
