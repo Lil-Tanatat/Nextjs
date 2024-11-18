@@ -71,5 +71,16 @@
     "enter_usdt": "กรอกจำนวน USDT",
     "click_buy": "คลิกเพื่อซื้อ Giver ด้วย USDT",
     "buy_button": "ซื้อโทเค็น"
+  },
+  "benefits": {
+    "benefits_title": "ประโยชน์ของการเข้าร่วมในการขายโทเค็น ",
+    "benefit1_title": "โบนัส 20%",
+    "benefit1_description": "จากจำนวนโทเค็นทั้งหมดที่ซื้อในช่วงระยะเวลาของการ Presale นี้",
+    "benefit2_title": "ได้รับสิทธิ์การเข้าถึงแพลตฟอร์มก่อนใคร",
+    "benefit2_description": "การเข้าร่วมในพรีเซลจะทำให้คุณถูกเพิ่มลงในรายชื่อ Whitelist โดยอัตโนมัติ",
+    "benefit3_title": "การเข้าถึงการซื้อขายเครดิตคาร์บอนล่วงหน้า",
+    "benefit3_description": "บนแพลตฟอร์ม Giver ล่วงหน้าหนึ่งไตรมาสจากผู้ถือโทเค็นทั่วไป",
+    "token_name": "Giver",
+    "token_presale": ""
   }
 }

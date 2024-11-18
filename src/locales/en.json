@@ -72,5 +72,16 @@
     "enter_usdt": "Enter USDT Amount",
     "click_buy": "Click To Buy Giver With USDT",
     "buy_button": "Buy Tokens"
+  },
+  "benefits": {
+    "benefits_title": "Benefits of Participating in the",
+    "benefit1_title": "20% Bonus",
+    "benefit1_description": "on the total number of tokens purchased during this Presale period.",
+    "benefit2_title": "Exclusive Access to Our Platform",
+    "benefit2_description": "By joining our pre-sale, you will automatically be added to the whitelist automatically",
+    "benefit3_title": "Priority Access to Carbon Credit Trading",
+    "benefit3_description": "on the Giver platform one quarter before regular token holders.",
+    "token_name": "Giver",
+    "token_presale": "Token Presale"
   }
 }
