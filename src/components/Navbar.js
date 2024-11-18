@@ -105,10 +105,10 @@ function Navbar() {
           >
             <option value="en">EN</option>
             <option value="th">TH</option>
-            <option value="jp">JP</option>
-            <option value="cn">CN</option>
-            <option value="vn">VN</option>
-            <option value="ml">ML</option>
+            {/* <option value="jp">JP</option> */}
+            {/* <option value="cn">CN</option> */}
+            {/* <option value="vn">VN</option> */}
+            {/* <option value="ml">ML</option> */}
           </select>
         </div>
       </div>
