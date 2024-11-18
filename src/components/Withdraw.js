@@ -4,8 +4,8 @@ import USDTABI from "../ABI/USDTABI.json"; // Make sure this is the correct ABI 
 import GIVPreSaleABI from "../ABI/GIVPreSaleABI.json"; // This should be the ABI of the contract you're interacting with
 import CoinToken from "../assets/images/Coin Token.png";
 
-const presaleContractAddress = "0x21EAA23a845BbaC45b0Ce05CA091a0A78b716753";
-const usdtTokenAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd"; // The address of the USDT token contract
+const presaleContractAddress = "0xA66893715878D6fC3DA21e47168CBa61eF1b8970";
+const usdtTokenAddress = "0x55d398326f99059fF775485246999027B3197955";
 
 const WithdrawPage = () => {
   const [account, setAccount] = useState("");
