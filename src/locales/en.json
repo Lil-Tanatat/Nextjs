@@ -89,5 +89,14 @@
     "description": "The funds will be used to support small-scale farmers in joining the T-Ver program to meet carbon credit standards. We will then use these funds to purchase carbon credits and sell them on our platform.",
     "photo1Alt": "Children in forest",
     "photo2Alt": "Farm landscape"
+  },
+  "faq": {
+    "faq_title": "Presale FAQ about Fundraising and Tokens",
+    "faq1_question": "What will the funds raised be used for?",
+    "faq1_answer": "The funds will be used to purchase carbon credits from farmers and provide financial support to farmers who have not yet joined the T-VER project. This aims to promote greenhouse gas reduction and create sustainability for farming communities.",
+    "faq2_question": "Why are the tokens locked for 2 years?",
+    "faq2_answer": "Since this project requires considerable time and coordination with multiple parties, we are locking the tokens for 2 years to ensure stability in the project's execution. During this 2-year period, the tokens will remain locked, and investors will receive a 20% bonus when the tokens are unlocked.",
+    "faq3_question": "What are the special benefits for those who purchase tokens during the Pre-sale?",
+    "faq3_answer": "Those who purchase tokens during the Pre-sale will receive several exclusive benefits, including:\n • Access to the Stake Pool 3 months before IDO investors\n • Early access to the Carbon Credit trading platform 3 months ahead of general investors\n • Their names will be recorded in the Pre-sale database, giving them faster access to additional special privileges in the future."
   }
 }
