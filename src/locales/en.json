@@ -58,5 +58,19 @@
     "mission_vision_content": "Our team recognizes the issue of global warming and wants to be part of the movement towards achieving net-zero emissions. However, the current carbon credit trading system still uses paper and plastic money, which generates significant carbon emissions during production. Therefore, we have adopted blockchain technology for carbon credit trading to reduce the use of fiat currency.",
     "section_title_2": "Partner & Collaborators",
     "partner_content": "Our partners are a team of experts in waste management, both on land and at sea. They have identified ways to reduce and offset carbon dioxide emissions. The development team and our partners have therefore collaborated to create this project."
+  },
+  "presale": {
+    "title": "Join the Giver Token Pre-sale",
+    "slogan1": "Go Greener with Giver",
+    "slogan2": "in the future of sustainable carbon trading",
+    "buy_with": "Buy Giver Token with USDT only!",
+    "join_us": "Join Giver Presale Follow these steps",
+    "connect_metamask": "Connect Your MetaMask Wallet ",
+    "check_metamask": "Check Your MetaMask Account ",
+    "your_account": "Your MetaMask Account",
+    "purchased": "You Already Have Purchased Tokens Please Wait To Claim On Release Date & Time",
+    "enter_usdt": "Enter USDT Amount",
+    "click_buy": "Click To Buy Giver With USDT",
+    "buy_button": "Buy Tokens"
   }
 }
