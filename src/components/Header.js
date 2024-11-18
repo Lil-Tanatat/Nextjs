@@ -270,7 +270,7 @@ const Header = () => {
                   whileTap={{ scale: 0.95 }}
                   className="-ml-10 w-[130px] md:w-[150px] lg:w-[176px] h-[40px] md:h-[45px] lg:h-[47px] px-4 md:px-6 py-2 bg-green-950 text-white font-medium text-[14px] md:text-[16px] lg:text-[20px] rounded-full hover:bg-yellow-600"
                 >
-                  Buy Tokens
+                  {t("presale.buy_button")}
                 </motion.button>
               </div>
             </a>
