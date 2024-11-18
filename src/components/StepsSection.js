@@ -1,24 +1,29 @@
 import React from "react";
+import { useTranslation } from "react-i18next"; // Import the useTranslation hook
 
 function StepsSection() {
+  const { t, i18n } = useTranslation(); // Initialize the translation hook
+
   const steps = [
     {
-      title: "Connecting buyers and sellers",
-      description: "Buyers and sellers connect directly on the Giver platform.",
+      title: t("Connecting buyers and sellers"),
+      description: t(
+        "Buyers and sellers connect directly on the Giver platform."
+      ),
     },
     {
-      title: "Using Giver Token",
-      description: "Buyers pay for carbon credits with Giver Token.",
+      title: t("Using Giver Token"),
+      description: t("Buyers pay for carbon credits with Giver Token."),
     },
     {
-      title: "Smart Contracts",
-      description:
-        "Transactions are secured and automated via Smart Contracts.",
+      title: t("Smart Contracts"),
+      description: t(
+        "Transactions are secured and automated via Smart Contracts."
+      ),
     },
     {
-      title: "Go Net Zero Together",
-      description:
-        "Everybody wins! Buyers get carbon credits, and the planet gets cleaner.",
+      title: t("Net Zero Together 2"),
+      description: t("Net Zero Together 2 Description"),
     },
   ];
 
@@ -41,10 +46,13 @@ function StepsSection() {
       <div className="w-full flex flex-col items-center">
         <div className="text-center mb-28">
           <h2 className="text-3xl sm:text-4xl font-bold">
-            How to <span className="text-[#517008]">Giver</span> Works
+            {t("How to")} <span className="text-[#517008]">{t("Giver")}</span>{" "}
+            {/* Conditionally render "Works" based on language */}
+            {i18n.language === "en" ? t("Works") : ""}
           </h2>
+
           <p className="mt-7 text-lg sm:text-xl font-semibold text-[#92B344]">
-            Four steps to carbon credit trading on Giver
+            {t("Four steps to carbon credit trading on Giver")}
           </p>
         </div>
         <div className="flex flex-col md:flex-row w-full relative gap-0">
@@ -64,7 +72,7 @@ function StepsSection() {
                   className={`${textcolors[index]} text-4xl sm:text-5xl md:text-6xl font-bold`}
                 >
                   {index + 1}
-                </span>{" "}
+                </span>
               </div>
               <h3 className="mt-10 text-lg sm:text-xl font-semibold text-white text-center">
                 {step.title}

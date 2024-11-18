@@ -1,20 +1,24 @@
 import React from "react";
 import { PieChart } from "react-minimal-pie-chart";
-import { motion } from "framer-motion"; // Import motion from framer-motion
+import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
+
 import Fire from "../assets/images/Fire.png";
 
 function TokenomicsSection() {
+  const { t } = useTranslation();
+
   const data = [
-    { title: "Pre-sale", value: 10, color: "#D2EBA9" },
+    { title: t("Pre-sale"), value: 10, color: "#D2EBA9" },
     { title: "ICO", value: 15, color: "#D3FA79" },
-    { title: "Developer and Project Owner", value: 5, color: "#A4CC47" },
+    { title: t("Developer and Project Owner"), value: 5, color: "#A4CC47" },
     {
-      title: "Marketing, Community Development, Partnership",
+      title: t("Marketing, Community Development, Partnership"),
       value: 20,
       color: "#8CB62B",
     },
-    { title: "Lock Liquidity", value: 25, color: "#517008" },
-    { title: "Reward", value: 25, color: "#70951A" },
+    { title: t("Lock Liquidity"), value: 25, color: "#517008" },
+    { title: t("Reward"), value: 25, color: "#70951A" },
   ];
 
   return (
@@ -26,7 +30,7 @@ function TokenomicsSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Tokenomics
+          {t("Tokennomics")}
         </motion.h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <div
@@ -58,7 +62,7 @@ function TokenomicsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Total Supply
+                {t("Total Supply")}
               </motion.p>
               <motion.p
                 className="text-[28px] md:text-[40px] font-semibold mt-10"
@@ -74,7 +78,7 @@ function TokenomicsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                Tokens
+                {t("Tokens")}
               </motion.p>
             </div>
           </div>
@@ -111,7 +115,7 @@ function TokenomicsSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              Token Sale Details: The price of 1 Giver = 0.01 USD.
+              {t("Token Sale Details: The price of 1 Giver = 0.01 USD.")}
             </motion.p>
             <ul className="list-disc ml-4 md:ml-6 text-[14px] md:text-[16px] mt-2 space-y-1">
               <motion.li
@@ -119,17 +123,18 @@ function TokenomicsSection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                Those who purchase tokens during the Presale will receive a 20%
-                bonus on their purchase, but the tokens must be locked for 2
-                years via a Vesting Smart Contract.
+                {t(
+                  "Those who purchase tokens during the Presale will receive a 20% bonus on their purchase, but the tokens must be locked for 2 years via a Vesting Smart Contract."
+                )}
               </motion.li>
               <motion.li
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
               >
-                Buyers during the ICO phase will have early access to the Stake
-                Pool and can earn an interest rate of 25%.
+                {t(
+                  "Buyers during the ICO phase will have early access to the Stake Pool and can earn an interest rate of 25%."
+                )}
               </motion.li>
             </ul>
           </div>
@@ -148,8 +153,8 @@ function TokenomicsSection() {
                 alt="Fire"
                 className="w-[50px] md:w-[63px] h-[50px] md:h-[68px]"
               />
-              <p className="text-[20px] md:text-[24px] font-semibold">
-                Burn Target 40% =
+              <p className="text-[20px] md:text-[20px] font-semibold">
+               {t("Burn Target 40% =")}
               </p>
             </motion.div>
             <motion.p
@@ -159,7 +164,7 @@ function TokenomicsSection() {
               transition={{ duration: 0.6, delay: 1 }}
             >
               <span className="block md:inline">2,000,000,000</span>
-              <span className="block md:inline md:ml-2">Tokens</span>
+              <span className="block md:inline md:ml-2">{t("Tokens")}</span>
             </motion.p>
           </div>
         </motion.div>
