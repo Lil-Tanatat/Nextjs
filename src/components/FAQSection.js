@@ -9,23 +9,23 @@ const FAQ = () => {
 
   const faqs = [
     {
-      question: "faq.faq1_question",
-      answer: "faq.faq1_answer",
+      question: "faqPage.faq1_question",
+      answer: "faqPage.faq1_answer",
     },
     {
-      question: "faq.faq2_question",
-      answer: "faq.faq2_answer",
+      question: "faqPage.faq2_question",
+      answer: "faqPage.faq2_answer",
     },
     {
-      question: "faq.faq3_question",
-      answer: "faq.faq3_answer",
+      question: "faqPage.faq3_question",
+      answer: "faqPage.faq3_answer",
     },
   ];
 
   return (
     <section ref={ref} className="py-10 bg-gray-50 overflow-hidden">
       <h2 className="text-center text-xl md:text-2xl font-semibold mb-6">
-        {t("faq.faq_title")} {/* Use translation key for title */}
+        {t("faqPage.faq_title")} {/* Use translation key for title */}
       </h2>
       <div className="max-w-3xl mx-auto space-y-10 px-4">
         {faqs.map((faq, index) => (

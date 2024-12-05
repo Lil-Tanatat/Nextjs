@@ -9,16 +9,16 @@ function TokenomicsSection() {
   const { t } = useTranslation();
 
   const data = [
-    { title: t("Pre-sale"), value: 10, color: "#D2EBA9" },
+    { title: t("tokenomics.preSale"), value: 10, color: "#D2EBA9" },
     { title: "ICO", value: 15, color: "#D3FA79" },
-    { title: t("Developer and Project Owner"), value: 5, color: "#A4CC47" },
+    { title: t("tokenomics.developer"), value: 5, color: "#A4CC47" },
     {
-      title: t("Marketing, Community Development, Partnership"),
+      title: t("tokenomics.marketing"),
       value: 20,
       color: "#8CB62B",
     },
-    { title: t("Lock Liquidity"), value: 25, color: "#517008" },
-    { title: t("Reward"), value: 25, color: "#70951A" },
+    { title: t("tokenomics.lock"), value: 25, color: "#517008" },
+    { title: t("tokenomics.reward"), value: 25, color: "#70951A" },
   ];
 
   return (
@@ -30,7 +30,7 @@ function TokenomicsSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {t("Tokennomics")}
+          {t("tokenomics.title")}
         </motion.h2>
         <div className="flex flex-col md:flex-row items-center justify-center gap-8">
           <div
@@ -62,7 +62,7 @@ function TokenomicsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                {t("Total Supply")}
+                {t("tokenomics.total")}
               </motion.p>
               <motion.p
                 className=" text-[20px] md:text-[40px] font-semibold mt-10"
@@ -78,7 +78,7 @@ function TokenomicsSection() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                {t("Tokens")}
+                {t("tokenomics.token")}
               </motion.p>
             </div>
           </div>
@@ -115,7 +115,7 @@ function TokenomicsSection() {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 0.4 }}
             >
-              {t("Token Sale Details: The price of 1 Giver = 0.01 USD.")}
+              {t("tokenomics.price")}
             </motion.p>
             <ul className="list-disc ml-4 md:ml-6 text-[14px] md:text-[16px] mt-2 space-y-1">
               <motion.li
@@ -123,19 +123,15 @@ function TokenomicsSection() {
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.6 }}
               >
-                {t(
-                  "Those who purchase tokens during the Presale will receive a 20% bonus on their purchase, but the tokens must be locked for 2 years via a Vesting Smart Contract."
-                )}
+                {t("tokenomics.description1")}
               </motion.li>
-              {/* <motion.li
+              <motion.li
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.8 }}
               >
-                {t(
-                  "Buyers during the ICO phase will have early access to the Stake Pool and can earn an interest rate of 25%."
-                )}
-              </motion.li> */}
+                {t("tokenomics.description2")}
+              </motion.li>
             </ul>
           </div>
 
@@ -154,7 +150,7 @@ function TokenomicsSection() {
                 className="w-[50px] md:w-[63px] h-[50px] md:h-[68px]"
               />
               <p className="text-[20px] md:text-[20px] font-semibold">
-                {t("Burn Target 40% =")}
+                {t("tokenomics.burnTarget")}
               </p>
             </motion.div>
             <motion.p
@@ -164,7 +160,9 @@ function TokenomicsSection() {
               transition={{ duration: 0.6, delay: 1 }}
             >
               <span className="block md:inline">2,000,000,000</span>
-              <span className="block md:inline md:ml-2">{t("Tokens")}</span>
+              <span className="block md:inline md:ml-2">
+                {t("tokenomics.token")}
+              </span>
             </motion.p>
           </div>
         </motion.div>

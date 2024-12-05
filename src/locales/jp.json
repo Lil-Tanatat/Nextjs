@@ -1,102 +1,258 @@
 {
-  "Home": "ホーム",
-  "Service": "サービス",
-  "Pages": "ページ",
-  "Presale": "プレセール",
-  "Blog": "ブログ",
-  "AboutUs": "私たちについて",
-  "TokenSale": "トークンセール",
-  "The": "トークン",
-  "Giver": "Giver",
-  "Token": "トークン",
-  "is a digital token used for carbon credit trading on the": "は、炭素クレジット取引に使用されるデジタルトークンです。",
-  "platform.": "プラットフォーム。",
-  "It aims to make transactions more efficient, secure, and eco-friendly by shifting from paper-based to digital processes.": "紙ベースからデジタルプロセスへの移行により、取引をより効率的、安全、かつエコフレンドリーにすることを目的としています。",
-  "Giver leverages blockchain and smart contracts to ensure transparency and connect carbon credit buyers with sellers easily.": "Giverはブロックチェーンとスマートコントラクトを活用して、透明性を確保し、炭素クレジットの買い手と売り手を簡単に繋げます。",
-  "Token Sale": "トークンセール",
-  "Benefits of the": "の利点",
-  "Carbon Credit": "カーボンクレジット",
-  "Carbon Credit Trading": "カーボンクレジット取引",
-  "The Giver Token platform streamlines secure, transparent carbon credit trading via blockchain, enabling global transactions without geographical limits. It connects users to the growing carbon credit market, helping reduce emissions and support certified carbon reduction projects.": "Giverトークンプラットフォームは、ブロックチェーンを通じて安全で透明なカーボンクレジット取引を効率化し、地理的制限なしにグローバルな取引を可能にします。これにより、ユーザーは成長するカーボンクレジット市場にアクセスでき、排出量の削減や認定されたカーボン削減プロジェクトの支援に貢献します。",
-  "Learn more": "詳細を見る",
-  "Net Zero Together": "共にネットゼロへ",
-  "Net Zero Together Description": "'Net Zero Together'は、チームGiverが主導する共同のイニシアティブで、炭素中立を達成することを通じて持続可能な未来を築くことを目的としています。共同の行動、革新的な解決策、そしてコミュニティの参加を通じて、私たちは環境への影響を最小限に抑え、次世代に向けてより清潔で緑豊かな地球を確保します。チームGiverと共に、私たちはネットゼロ排出を目指して前進し、この重要な地球規模の目標に貢献できる個人や団体を力づけます。",
-  "How to": "方法",
-  "Works": "仕組み",
-  "Four steps to carbon credit trading on Giver": "Giverでのカーボンクレジット取引の4つのステップ",
-  "Connecting buyers and sellers": "買い手と売り手の接続",
-  "Buyers and sellers connect directly on the Giver platform.": "買い手と売り手はGiverプラットフォーム上で直接接続されます。",
-  "Using Giver Token": "Giverトークンの使用",
-  "Buyers pay for carbon credits with Giver Token.": "買い手はGiverトークンでカーボンクレジットを支払います。",
-  "Smart Contracts": "スマートコントラクト",
-  "Transactions are secured and automated via Smart Contracts.": "取引はスマートコントラクトを通じて安全かつ自動化されます。",
-  "Net Zero Together 2": "共にネットゼロへ",
-  "Net Zero Together 2 Description": "ネットゼロを目指して革新と行動を通じて炭素中立を目指す。",
-  "Tokennomics": "トークンノミクス",
-  "Total Supply": "総供給量",
-  "Tokens": "トークン",
-  "Token Sale Details: The price of 1 Giver = 0.01 USD.": "トークンセール詳細：1 Giver = 0.01 USD。",
-  "Those who purchase tokens during the Presale will receive a 20% bonus on their purchase, but the tokens must be locked for 2 years via a Vesting Smart Contract.": "プレセールでトークンを購入した方には、購入金額の20％のボーナスが付与されますが、トークンは2年間ロックされ、Vestingスマートコントラクトを通じて保護されます。",
-  "Buyers during the ICO phase will have early access to the Stake Pool and can earn an interest rate of 25%.": "ICOフェーズ中に購入した買い手は、Stake Poolへの早期アクセスを得ることができ、25％の利率を得ることができます。",
-  "Burn Target 40% =": "バーンターゲット 40% =",
-  "Pre-sale": "プレセール",
-  "Developer and Project Owner": "開発者およびプロジェクトオーナー",
-  "Marketing, Community Development, Partnership": "マーケティング、コミュニティ開発、パートナーシップ",
-  "Lock Liquidity": "流動性のロック",
-  "Reward": "報酬",
-  "*Privilege for Pre-sale Customer": "*プレセールのお客様への特権",
-  "More Documents": "その他のドキュメント",
-  "White Paper EN Version": "ホワイトペーパー英語版",
-  "White Paper TH Version": "ホワイトペーパータイ語版",
-  "How Our Platform work EN Version": "プラットフォームの使い方英語版",
-  "How Our Platform work TH Version": "プラットフォームの使い方タイ語版",
-  "Download": "ダウンロード",
-  "about_us": {
-    "title": "私たちについて",
-    "section_title_1": "現代ビジネスの重要な要素",
-    "mission_vision_title": "ミッション & ビジョン",
-    "mission_vision_content": "私たちのチームは、地球温暖化の問題を認識し、ネットゼロ排出の達成に向けて活動しています。しかし、現行のカーボンクレジット取引システムは依然として紙やプラスチックマネーを使用しており、製造時に多大な炭素排出を生じています。そこで私たちは、カーボンクレジット取引にブロックチェーン技術を採用し、法定通貨の使用を減らすことにしました。",
-    "section_title_2": "パートナー & 協力者",
-    "partner_content": "私たちのパートナーは、陸上および海上での廃棄物管理の専門家チームです。彼らは二酸化炭素排出量を削減し、オフセットする方法を特定しています。開発チームと私たちのパートナーは、このプロジェクトの創造のために協力しています。"
+  "home": "Home",
+  "service": "Service",
+  "pages": "Pages",
+  "whitepaper": "Whitepaper",
+  "roadmaps": "Roadmaps",
+  "tokenInfo": "Token Info",
+  "faq": "FAQ",
+  "about": "About",
+  "presale": "Presale",
+  "blog": "Blog",
+  "aboutUs": "About Us",
+  "contactUs": "Contact Us",
+  "tokenSale": "Token Sale",
+  "ICO": "Join ICO",
+  "the": "The",
+  "giver": "Giver",
+  "token": "Token",
+  "buyToken": "Buy Token",
+  "banner": {
+    "banner1": "is a digital token used for carbon credit trading on the",
+    "banner2": "It aims to make transactions more efficient, secure, and eco-friendly by shifting from paper-based to digital processes.",
+    "banner3": "Giver leverages blockchain and smart contracts to ensure transparency and connect carbon credit buyers with sellers easily."
   },
-  "presale": {
-    "title": "Giverトークンのプレセールに参加",
-    "slogan1": "Giverでより緑の未来を",
-    "slogan2": "持続可能なカーボントレーディングの未来へ",
-    "buy_with": "USDTでGiverトークンを購入！",
-    "join_us": "プレセールに参加する方法",
-    "connect_metamask": "MetaMaskウォレットを接続",
-    "check_metamask": "MetaMaskアカウントを確認",
-    "your_account": "あなたのMetaMaskアカウント",
-    "purchased": "既にトークンを購入しています。リリース日と時間までお待ちください。",
-    "enter_usdt": "USDT金額を入力",
-    "click_buy": "USDTでGiverを購入する",
-    "buy_button": "トークンを購入"
+  "benefitSection": {
+    "benefit": "Benefits of the",
+    "carbon": "Giver Platform",
+    "carbonTrading": "Carbon Credit Trading",
+    "carbonDescription": "The Giver Token platform streamlines secure, transparent carbon credit trading via blockchain, enabling global transactions without geographical limits. It connects users to the growing carbon credit market, helping reduce emissions and support certified carbon reduction projects.",
+    "learnMore": "Learn more",
+    "netTitle": "Net Zero Together",
+    "netDescription": "'Net Zero Together' is a collaborative initiative led by Team Giver, focused on creating a sustainable future by achieving carbon neutrality. Through collective action, innovative solutions, and community engagement, we aim to minimize our environmental impact and ensure a cleaner, greener planet for future generations. Together, with Team Giver, we can lead the way to net zero emissions, empowering individuals and organizations to contribute to this critical global goal."
+  },
+  "howTo": {
+    "how": "How",
+    "works": "Works",
+    "subHeader": "Four steps to carbon credit trading on Giver",
+    "step1Header": "Connecting buyers and sellers",
+    "step1Description": "Buyers and sellers connect directly on the Giver platform.",
+    "step2Header": "Using Giver Token",
+    "step2Description": "Buyers pay for carbon credits with Giver Token.",
+    "step3Header": "Smart Contracts",
+    "step3Description": "Transactions are secured and automated via Smart Contracts.",
+    "step4Header": "Net Zero Together",
+    "step4Description": "Net Zero Together through innovation and action to strive for carbon neutrality."
+  },
+  "tokenomics": {
+    "title": "Tokennomics",
+    "total": "Total Supply",
+    "token": "Tokens",
+    "price": "Token Sale Details: The price of 1 Giver = 0.01 USD.",
+    "description1": "Those who purchase tokens during the Presale will receive a 20% bonus on their purchase, but the tokens must be locked for 2 years via a Vesting Smart Contract.",
+    "description2": "Buyers during the Pre-sale phase will have early access to our platform",
+    "burnTarget": "Burn Target 40% =",
+    "preSale": "Pre-sale",
+    "developer": "Developer and Project Owner",
+    "marketing": "Marketing, Community Development, Partnership",
+    "lock": "Lock Liquidity",
+    "reward": "Reward",
+    "presale": "Pre-sale buyers will receive a 20% bonus on their purchased tokens",
+    "control": ", with a controlled release schedule to prevent inflation risks.",
+    "burn": "Burning & Buy-back Mechanism :",
+    "burnDescription": " To control long-term supply, we will burn 15 GIVER tokens in everycarbon credit trade on the platform, reducing the token supply and enhancing value for GIVER holders."
+  },
+  "privillage": "*Privilege for Pre-sale Customer",
+  "document": {
+    "more": "More Documents",
+    "whitepaperEN": "White Paper EN Version",
+    "whitepaperTH": "White Paper TH Version",
+    "howToWorkEN": "How Our Platform work EN Version",
+    "howToWorkTH": "How Our Platform work TH Version",
+    "download": "Download"
+  },
+
+  "about_us": {
+    "title": "About Us",
+    "section_title_1": "It Is A Critical Component Of Modern Business",
+    "mission_vision_title": "Mission & Vision",
+    "mission_vision_content": "Our team recognizes the issue of global warming and wants to be part of the movement towards achieving net-zero emissions. However, the current carbon credit trading system still uses paper and plastic money, which generates significant carbon emissions during production. Therefore, we have adopted blockchain technology for carbon credit trading to reduce the use of fiat currency.",
+    "section_title_2": "Partner & Collaborators",
+    "partner_content": "Our partners are a team of experts in waste management, both on land and at sea. They have identified ways to reduce and offset carbon dioxide emissions. The development team and our partners have therefore collaborated to create this project."
+  },
+  "presalePage": {
+    "title": "Join the Giver Token Pre-sale",
+    "slogan1": "Go Greener with Giver",
+    "slogan2": "in the future of sustainable carbon trading",
+    "buy_with": "Buy Giver Token with USDT only!",
+    "join_us": "Join Giver Presale Follow these steps",
+    "connect_metamask": "Connect Your MetaMask Wallet ",
+    "check_metamask": "Check Your MetaMask Account ",
+    "your_account": "Your MetaMask Account",
+    "purchased": "You Already Have Purchased Tokens Please Wait To Claim On Release Date & Time",
+    "enter_usdt": "Enter USDT Amount",
+    "click_buy": "Click To Buy Giver With USDT",
+    "buy_button": "Buy Tokens"
   },
   "benefits": {
-    "benefits_title": "プレセールに参加する利点",
-    "benefit1_title": "20％ボーナス",
-    "benefit1_description": "このプレセール期間中に購入した総トークン数に対して。",
-    "benefit2_title": "プラットフォームへの専用アクセス",
-    "benefit2_description": "プレセールに参加すると、自動的にホワイトリストに追加されます。",
-    "benefit3_title": "カーボンクレジット取引への優先アクセス",
-    "benefit3_description": "一般のトークン保有者の3ヶ月前にGiverプラットフォームで取引を開始できます。",
+    "benefits_title": "Benefits of Participating in the",
+    "benefit1_title": "20% Bonus",
+    "benefit1_description": "on the total number of tokens purchased during this Presale period.",
+    "benefit2_title": "Exclusive Access to Our Platform",
+    "benefit2_description": "By joining our pre-sale, you will automatically be added to the whitelist automatically",
+    "benefit3_title": "Priority Access to Carbon Credit Trading",
+    "benefit3_description": "on the Giver platform one quarter before regular token holders.",
     "token_name": "Giver",
-    "token_presale": "トークンプレセール"
+    "token_presale": "Token Presale"
   },
   "investmentFunds": {
-    "title": "投資資金の使い道",
-    "description": "これらの資金は、小規模農家がT-Verプログラムに参加してカーボンクレジット基準を満たすために使用されます。その後、この資金でカーボンクレジットを購入し、プラットフォームで販売します。",
-    "photo1Alt": "森林の中の子どもたち",
-    "photo2Alt": "農場の風景"
+    "title": "Source of investment funds",
+    "description": "The funds will be used to support small-scale farmers in joining the T-Ver program to meet carbon credit standards. We will then use these funds to purchase carbon credits and sell them on our platform.",
+    "photo1Alt": "Children in forest",
+    "photo2Alt": "Farm landscape"
   },
-  "faq": {
-    "faq_title": "プレセールに関するFAQ（資金調達とトークン）",
-    "faq1_question": "資金は何に使われますか？",
-    "faq1_answer": "資金は農家からカーボンクレジットを購入し、T-VERプロジェクトに参加していない農家への財政支援に使われます。これにより温室効果ガスの削減を促進し、農業コミュニティの持続可能性を高めます。",
-    "faq2_question": "なぜトークンは2年間ロックされるのですか？",
-    "faq2_answer": "このプロジェクトは多くの関係者との調整が必要なため、2年間トークンをロックしてプロジェクトの安定性を確保します。この期間中、トークンはロックされ、2年後にアンロックされた時点で購入者には20％のボーナスが付与されます。",
-    "faq3_question": "プレセールでトークンを購入した人の特典は何ですか？",
-    "faq3_answer": "プレセールでトークンを購入した方には、以下の特典があります：\n • IDO投資家より3ヶ月早くStake Poolにアクセス\n • 一般投資家より3ヶ月早くカーボンクレジット取引プラットフォームにアクセス\n • プレセールデータベースに名前が記録され、今後の特別な特典に早くアクセスできる"
+  "faqPage": {
+    "faq_title": "Presale FAQ about Fundraising and Tokens",
+    "faq1_question": "What will the funds raised be used for?",
+    "faq1_answer": "The funds will be used to purchase carbon credits from farmers and provide financial support to farmers who have not yet joined the T-VER project. This aims to promote greenhouse gas reduction and create sustainability for farming communities.",
+    "faq2_question": "Why are the tokens locked for 2 years?",
+    "faq2_answer": "Since this project requires considerable time and coordination with multiple parties, we are locking the tokens for 2 years to ensure stability in the project's execution. During this 2-year period, the tokens will remain locked, and investors will receive a 20% bonus when the tokens are unlocked.",
+    "faq3_question": "What are the special benefits for those who purchase tokens during the Pre-sale?",
+    "faq3_answer": "Those who purchase tokens during the Pre-sale will receive several exclusive benefits, including:\n • Access to the Stake Pool 3 months before IDO investors\n • Early access to the Carbon Credit trading platform 3 months ahead of general investors\n • Their names will be recorded in the Pre-sale database, giving them faster access to additional special privileges in the future."
+  },
+  "whitepaperPage": {
+    "title": "Project Overview",
+    "projectName": " Project Name : Carbon Credit Trading Market on Blockchain Technology",
+    "tokenName": "Token Name : Giver",
+    "platform": "Platform : Giver (Giver Carbon Credit Marketplace)",
+    "description": "Description :",
+    "description1": "GIVER is a digital token designed to serve as the primary currency for trading carbon credits in a peer-to-peer market on the GIVER platform. All transactions utilize blockchain technology to ensure transparency and maximum efficiency. The GIVER token aims to make the carbon credit trading process more environmentally friendly by transitioning from traditional financial transactions to a fully digital system.",
+    "description2": "On this platform, users can trade carbon credits using GIVER tokens through a secure, transparent, and rapid process, facilitated by Smart Contracts and GREEN tokens. GREEN tokens are created as proof of trade, minted at the beginning of each transaction and burned upon completion."
+  },
+  "problemStatement": {
+    "title": "Problem Statement",
+    "description1": "Currently, most carbon credit trading still relies on traditional processes that depend on paper-based financial systems, which are not fully aligned with the goal of reducing carbon emissions. Existing systems also face limitations, such as slow transactions, high fees, and insufficient transparency.",
+    "description2": "The GIVER project aims to improve the speed, transparency, and eco-friendliness of carbon credit trading by utilizing GIVER and GREEN tokens on blockchain technology. This allows users to conduct peer-to-peer transactions without traditional intermediaries, streamlining the trading process and ensuring the accuracy of transactions.",
+    "description3": "Additionally, the global average carbon footprint per person is approximately 5.3-5.5 tons of CO2 equivalent per year. Raising awareness about global warming is crucial."
+  },
+  "useCase": {
+    "title": "Use Case of Giver Token",
+    "description1": "The GIVER token is designed to serve as the main currency for peer-to-peer carbon credit transactions on the platform. Every transaction will use the GIVER token as the payment medium.",
+    "description2": "GREEN tokens are created in the form of Smart Contracts to act as proof for each carbon credit transaction. Each GREEN token represents one carbon credit unit. Upon transaction completion, GREEN tokens are immediately burned.",
+    "greenConversion": "1 Green =",
+    "description3": "This approach ensures a transparent, verifiable carbon credit trading process and minimizes the risk of counterfeiting."
+  },
+  "technologyPage": {
+    "title": "Technology",
+    "platform": "Blockchain Platform: Binance Smart Chain (BSC)",
+    "description1": "We selected Binance Smart Chain (BSC) for its transaction speed, low fees, and stability—key elements for supporting peer-to-peer transactions on the GIVER platform.",
+    "description2": "BSC also offers a comprehensive and secure ecosystem, essential for transparent and reliable transactions.",
+    "imageAltText": "Binance Smart Chain Logo"
+  },
+  "governancePage": {
+    "title": "Governance",
+    "description": "The GIVER platform uses a Decentralized Voting Mechanism, allowing GIVER token holders to participate in project direction decisions. GIVER holders can vote on significant matters related to platform development.",
+    "imageAltText": "Governance Chart"
+  },
+  "roadmapPage": {
+    "title": "Roadmap",
+    "milestones": [
+      {
+        "timeframe": "Nov-Dec 2024",
+        "description": "Conduct Pre-sale and engage relevant agencies, such as the SEC and TGO, to plan further actions."
+      },
+      {
+        "timeframe": "Q1/2025",
+        "description": "Launch ICO for investors and those wishing to register carbon credits with TGO. Interested parties can contact Giver admin for funding consideration and assistance with TGO coordination, offering carbon credits to sell on our platform in return."
+      },
+      {
+        "timeframe": "Q2/2025",
+        "description": "Collaborate with various exchanges to list GIVER tokens for convenient transactions."
+      },
+      {
+        "timeframe": "Q3/2025",
+        "description": "Giver Admin sells existing carbon credits on the GIVER platform, opening carbon credit trading for pre-sale participants."
+      },
+      {
+        "timeframe": "Q4/2025",
+        "description": "Enable small carbon credit sellers to register on GIVER’s platform, and open GIVER carbon credit trading to all users."
+      }
+    ]
+  },
+  "developmentPage": {
+    "developmentTeam": {
+      "title": "Development Team",
+      "description": "The GIVER development team comprises blockchain technology experts, platform developers, and environmental management professionals with experience in carbon footprint reduction and carbon credit trading projects."
+    },
+    "advisorsAndPartners": {
+      "title": "Advisors and Partners",
+      "description": "GIVER collaborates with organizations specializing in both land and marine waste management. These partnerships help ensure that GIVER meets strict environmental standards and supports carbon footprint reduction across multiple industries."
+    },
+    "marketingStrategy": {
+      "title": "Marketing and Project Expansion Strategy",
+      "description": "Funds raised from the Pre-sale will be invested in purchasing carbon credits from small farmers and in buying land to generate carbon credits. This approach will support GIVER’s sustainable growth, adding value to the GIVER token. Additionally, we have marketing strategies focused on education and community engagement to expand the GIVER token ecosystem."
+    },
+    "securityAndRiskManagement": {
+      "title": "Security and Risk Management",
+      "description": "The GIVER platform prioritizes user security with regular audits conducted by external experts. We also have comprehensive risk management covering regulatory compliance and cryptocurrency market volatility to reassure GIVER token holders."
+    },
+    "legalAndCompliance": {
+      "title": "Legal and Compliance",
+      "description": "The GIVER project will comply with legal requirements in all countries where carbon credit trading is conducted. We will collaborate with legal and crypto regulatory experts to ensure that the project operates lawfully."
+    },
+    "sustainableGrowth": {
+      "title": "Opportunities for Sustainable Growth",
+      "description1": "GIVER aims to help individuals and entities achieve Net Zero, starting with individuals. The average carbon footprint per person globally is approximately 5.3-5.5 tons of CO2 equivalent per year. Everyone can reduce or offset their footprint annually by purchasing carbon credits through the GIVER application, which will display their offset status transparently.",
+      "description2": "Once this initiative reaches a significant level, it will foster connections, influencing individual and group participation in various activities. Events and organizations requiring participation will recognize and prioritize climate awareness, making it easier to achieve Net Zero. To support this, GIVER plans to develop an application for future user activities."
+    }
+  },
+  "roadmap": {
+    "title": "Roadmap",
+    "steps": [
+      {
+        "period": "Pre-sale",
+        "date": "Nov-Dec 2024",
+        "description": "Pre-sale and engagement with relevant regulatory bodies (e.g., SEC, TGO) to plan operations."
+      },
+      {
+        "period": "Q1",
+        "date": "2025",
+        "description": "Giver contacts various exchanges to list the token, providing convenience for Giver token buyers."
+      },
+      {
+        "period": "Q2",
+        "date": "2025",
+        "description": "ICO launch; those interested in registering to sell carbon credits through TGO can contact Giver Admin."
+      },
+      {
+        "period": "Q3",
+        "date": "2025",
+        "description": "Giver admin sells carbon credits on the platform; the platform opens for pre-sale participants."
+      },
+      {
+        "period": "Q4",
+        "date": "2025",
+        "description": "The platform opens for all sellers to register and sell their carbon credits on the Giver platform."
+      }
+    ]
+  },
+  "contactUsPage": {
+    "title": "How can we help?",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message...",
+    "messageSent": "Message Sent",
+    "thankyou": "Thank you for reaching out. We will get back to you shortly.",
+    "submit": "Submit",
+    "close": "Close"
+  },
+  "icoPage": {
+    "title": "Join Our ICO",
+    "slogan1": "Go Greener With Giver",
+    "slogan2": "Transform your investment future and join us in building a sustainable world!",
+    "stepsTitle": "Steps to Participate in the ICO",
+    "purchase": "Purchase Giver Tokens Here",
+    "enterusdt": "Enter USDT Amount",
+    "estimate": "Estimated GIV Tokens"
   }
 }

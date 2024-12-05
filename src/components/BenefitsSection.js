@@ -25,8 +25,8 @@ function BenefitsSection() {
     <section className="py-16 bg-white">
       <div className="w-full flex flex-col items-center">
         <h2 className="text-[24px] sm:text-[32px] md:text-[40px] font-bold text-center mb-12">
-          {t("Benefits of the")}{" "}
-          <span className="text-[#517008]">{t("Carbon Credit")}</span>
+          {t("benefitSection.benefit")}{" "}
+          <span className="text-[#517008]">{t("benefitSection.carbon")}</span>
         </h2>
 
         {/* Benefit 1 - Text Left, Image Right */}
@@ -46,26 +46,24 @@ function BenefitsSection() {
               />
             </div>
             <h3 className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#517008] mb-4 px-4 lg:px-10">
-              {t("Carbon Credit Trading")}
+              {t("benefitSection.carbonTrading")}
             </h3>
             <p className="text-[14px] sm:text-[16px] font-normal mb-6 leading-relaxed px-4 lg:px-10">
-              {t(
-                "The Giver Token platform streamlines secure, transparent carbon credit trading via blockchain, enabling global transactions without geographical limits. It connects users to the growing carbon credit market, helping reduce emissions and support certified carbon reduction projects."
-              )}
+              {t("benefitSection.carbonDescription")}
             </p>
             <motion.button
               className="mr-0 lg:mr-10 px-4 py-2 rounded border border-black hover:bg-green-700 hover:text-white transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {t("Learn more")}
+              {t("benefitSection.learnMore")}
             </motion.button>
           </div>
 
           {/* Right Image Section */}
           <motion.img
             src={Carbon1}
-            alt={t("Carbon Credit Trading")}
+            alt={t("benefitSection.carbonTrading")}
             className="w-[80%] sm:w-[70%] md:w-[60%] lg:w-[50%] h-auto max-h-[463px] object-cover shadow-lg mx-0"
             variants={fadeInScale}
             initial="hidden"
@@ -92,17 +90,17 @@ function BenefitsSection() {
               />
             </div>
             <h3 className="text-[20px] sm:text-[24px] md:text-[32px] font-bold text-[#517008] mb-4 px-4 lg:px-10">
-              {t("Net Zero Together")}
+              {t("benefitSection.netTitle")}
             </h3>
             <p className="text-[14px] sm:text-[16px] font-normal mb-6 leading-relaxed px-4 lg:px-10">
-              {t("Net Zero Together Description")}
+              {t("benefitSection.netDescription")}
             </p>
             <motion.button
               className="ml-0 lg:ml-10 px-4 py-2 rounded border border-black hover:bg-green-700 hover:text-white transition"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              {t("Learn more")}
+              {t("benefitSection.learnMore")}
             </motion.button>
           </div>
 

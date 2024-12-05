@@ -6,6 +6,9 @@ import CoinToken from "../assets/images/Coin Token.png";
 import { motion } from "framer-motion";
 import Coin from "../assets/images/Coin.png";
 import { useTranslation } from "react-i18next";
+import USDT from "../assets/images/usdt.png";
+import GIVER from "../assets/images/giver.png";
+import ARROW from "../assets/images/arrow.png";
 
 const presaleContractAddress = "0xA66893715878D6fC3DA21e47168CBa61eF1b8970";
 const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
@@ -15,7 +18,8 @@ const formatAccount = (account) => {
   }
   return account;
 };
-const Header = () => {
+
+const ICOHeader = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -26,20 +30,22 @@ const Header = () => {
   const [account, setAccount] = useState("");
   const [usdtAmount, setUsdtAmount] = useState("");
   const [message, setMessage] = useState("");
-  const [purchaseHistory, setPurchaseHistory] = useState([]);
+  const [givEstimate, setGivEstimate] = useState("0");
 
   // Countdown Timer
   useEffect(() => {
-    const startDate = new Date("2024-10-30T23:59:59");
-    const targetDate = new Date("2024-12-31T23:59:59");
+    const targetDate = new Date("2025-03-30T23:59:59");
 
     const countdown = setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
 
-      const totalDuration = targetDate - startDate;
-      const elapsed = now - startDate;
-      const percentage = Math.min((elapsed / totalDuration) * 100, 100);
+      const percentage = Math.min(
+        ((Date.now() - new Date("2025-01-01T23:59:59")) /
+          (targetDate - new Date("2025-01-01T23:59:59"))) *
+          100,
+        100
+      );
       setProgress(percentage);
 
       if (distance < 0) {
@@ -67,54 +73,21 @@ const Header = () => {
     return () => clearInterval(countdown);
   }, []);
 
-  // Connect to MetaMask
-  const connectMetaMask = async () => {
+  // Connect Wallet
+  const connectWallet = async () => {
     if (window.ethereum) {
       try {
         const accounts = await window.ethereum.request({
           method: "eth_requestAccounts",
         });
         setAccount(accounts[0]);
-        setMessage("MetaMask is connected!");
-        fetchPurchaseHistory(accounts[0]); // Fetch purchase history on account connection
+        setMessage("Wallet connected successfully!");
       } catch (error) {
-        console.error("MetaMask connection error:", error);
-        setMessage("Failed to connect MetaMask.");
+        console.error("Wallet connection error:", error);
+        setMessage("Failed to connect wallet.");
       }
     } else {
-      setMessage("Please install MetaMask!");
-    }
-  };
-
-  // Fetch Purchase History
-  const fetchPurchaseHistory = async (userAccount) => {
-    if (!userAccount) return;
-
-    try {
-      const web3 = new Web3(window.ethereum);
-      const presaleContract = new web3.eth.Contract(
-        GIVPreSaleABI,
-        presaleContractAddress
-      );
-
-      const purchaseDetails = await presaleContract.methods
-        .getPurchaseDetails(userAccount)
-        .call();
-
-      const tokenAmount = parseFloat(purchaseDetails[0]);
-      const unlockTime = parseInt(purchaseDetails[1]);
-      const claimed = purchaseDetails[2];
-
-      if (tokenAmount > 0) {
-        setPurchaseHistory([{ tokenAmount, unlockTime, claimed }]);
-      } else {
-        setPurchaseHistory([]);
-      }
-    } catch (error) {
-      console.error("Error fetching purchase history:", error);
-      setMessage(
-        "Could not fetch purchase history. Please check your contract and connection."
-      );
+      setMessage("Please install MetaMask to continue!");
     }
   };
 
@@ -122,7 +95,7 @@ const Header = () => {
     const usdtValue = parseFloat(usdtAmount);
 
     if (!account) {
-      setMessage("Please connect your MetaMask wallet first.");
+      setMessage("Please connect your wallet first.");
       return;
     }
 
@@ -151,7 +124,6 @@ const Header = () => {
 
       if (parseFloat(web3.utils.fromWei(allowance, "ether")) < usdtValue) {
         setMessage("Approving USDT for the presale contract...");
-        // Convert usdtAmount to wei
         const usdtAmountInWei = web3.utils.toWei(usdtAmount, "ether");
         await usdtContract.methods
           .approve(presaleContractAddress, usdtAmountInWei)
@@ -159,7 +131,7 @@ const Header = () => {
         setMessage("USDT approved successfully.");
       }
 
-      setMessage("Processing your transaction..., Do not Close");
+      setMessage("Processing your transaction..., Do not close the page.");
 
       const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
@@ -167,50 +139,25 @@ const Header = () => {
         .send({ from: account, gas: 200000 });
 
       setMessage("Transaction successful! Tokens purchased.");
-      fetchPurchaseHistory(account);
     } catch (error) {
       console.error("Error buying tokens:", error);
       setMessage(`Error: ${error.message}`);
     }
   };
 
-  // Claim Tokens
-  const claimTokens = async (unlockTime, claimed) => {
-    if (!account) {
-      setMessage("Please connect your MetaMask wallet first.");
-      return;
-    }
-
-    if (claimed) {
-      setMessage("Tokens have already been claimed.");
-      return;
-    }
-
-    try {
-      const web3 = new Web3(window.ethereum);
-      const presaleContract = new web3.eth.Contract(
-        GIVPreSaleABI,
-        presaleContractAddress
+  // Update GIV Estimate
+  useEffect(() => {
+    if (usdtAmount && !isNaN(parseFloat(usdtAmount))) {
+      const estimate = parseFloat(usdtAmount) * 100;
+      setGivEstimate(
+        new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(
+          estimate
+        )
       );
-
-      const currentTime = Math.floor(Date.now() / 1000);
-      if (currentTime < unlockTime) {
-        setMessage("Tokens are still locked.");
-        return;
-      }
-
-      setMessage("Claiming your tokens...");
-      await presaleContract.methods
-        .releaseTokens(account)
-        .send({ from: account });
-      setMessage("Tokens claimed successfully!");
-
-      fetchPurchaseHistory(account);
-    } catch (error) {
-      console.error("Error claiming tokens:", error);
-      setMessage(`Error: ${error.message}`);
+    } else {
+      setGivEstimate("0");
     }
-  };
+  }, [usdtAmount]);
 
   const { t } = useTranslation();
 
@@ -219,12 +166,13 @@ const Header = () => {
       <section className="bg-[#92B344] min-h-screen p-10 flex flex-col md:flex-row justify-between items-center">
         <div className="text-center md:text-left space-y-6 mb-6 md:mb-0">
           <h1 className="text-[36px] md:text-[50px] font-semibold text-white leading-tight">
-            {t("presalePage.title")}
+            {t("icoPage.title")}
+            <p className=" text-white font-bold text-lg">
+              {t("icoPage.slogan1")}
+            </p>
           </h1>
           <p className="text-[18px] md:text-[24px] text-white font-medium">
-            {t("presalePage.slogan1")}
-            <br />
-            {t("presalePage.slogan2")}
+            {t("icoPage.slogan2")}
           </p>
 
           <div className="space-y-4">
@@ -315,7 +263,7 @@ const Header = () => {
             1) {t("presalePage.connect_metamask")}:
           </p>
           <button
-            onClick={connectMetaMask}
+            onClick={connectWallet}
             className="my-4 w-full md:w-1/4  bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold rounded px-4 py-2 md:ml-8"
           >
             {account ? "Wallet Connected" : "Connect MetaMask"}
@@ -329,64 +277,57 @@ const Header = () => {
             <div className="text-white md:ml-8 my-4">
               {t("presalePage.your_account")} : {formatAccount(account)}
             </div>
-            {purchaseHistory.length === 0 && (
-              <div className="mt-2">
-                <div>
-                  <p className="text-[14px] md:text-[16px] font-medium text-white">
-                    3) {t("presalePage.enter_usdt")} (0.01 USDT = 1 Giver) :
-                  </p>
-                  <input
-                    type="number"
-                    placeholder="Enter USDT Amount"
-                    className="w-full md:w-1/4 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500 md:ml-8 my-4"
-                    value={usdtAmount}
-                    onChange={(e) => setUsdtAmount(e.target.value)}
-                  />
-                </div>
-                <div className="mt-2">
-                  <p className="text-[14px] md:text-[16px] font-medium text-white my-4">
-                    4) {t("presalePage.click_buy")} :
-                  </p>
-                  <button
-                    onClick={buyTokens}
-                    className=" mt-1 w-full md:w-1/4 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-4 py-2 md:ml-8"
-                  >
-                    {t("presalePage.buy_button")}
-                  </button>
+
+            <div>
+              <p className="text-[14px] md:text-[16px] font-medium text-white mb-5">
+                3) {t("icoPage.purchase")} :
+              </p>
+
+              <div className="flex justify-center items-center">
+                <div className="flex flex-col md:flex-row w-full md:w-3/4 space-x-0 md:space-x-4">
+                  <div className="w-full md:w-2/5">
+                    <img
+                      src={USDT}
+                      alt="tether"
+                      className="h-24 md:h-48 w-auto mx-auto mb-2"
+                    />
+                    <p className="text-[14px] md:text-[16px] font-medium text-white mb-2">
+                      {t("icoPage.enterusdt")}
+                    </p>
+                    <input
+                      type="number"
+                      placeholder="Enter USDT amount"
+                      value={usdtAmount}
+                      onChange={(e) => setUsdtAmount(e.target.value)}
+                      className="w-full p-2 text-lg rounded border border-gray-400 h-10"
+                    />
+                  </div>
+                  <div className="w-0 md:w-1/5 my-auto">
+                    <img
+                      src={ARROW}
+                      alt="arrow"
+                      className="h-36 mx-auto mb-14"
+                    />
+                  </div>
+                  <div className="w-full mt-5 md:mt-0 md:w-2/5">
+                    <img
+                      src={GIVER}
+                      alt="tether"
+                      className="h-24 md:h-48 w-auto mx-auto mb-2"
+                    />
+                    <p className="text-[14px] md:text-[16px] font-medium text-white mb-2">
+                      {t("icoPage.estimate")} : {givEstimate} GIV
+                    </p>
+                    <button
+                      onClick={buyTokens}
+                      className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full h-10"
+                    >
+                      Swap Now
+                    </button>
+                  </div>
                 </div>
               </div>
-            )}
-            {purchaseHistory.length > 0 && (
-              <div>
-                <p className="text-[14px] md:text-[16px] font-medium text-white">
-                  3) {t("presalePage.purchased")} :
-                </p>
-                <ul className="mt-4 space-y-2 md:ml-8">
-                  {purchaseHistory.map((purchase, index) => (
-                    <li key={index} className="text-white">
-                      {`Amount: ${
-                        purchase.tokenAmount / 1000000000000000000
-                      } GIV + ${
-                        (purchase.tokenAmount * 20) / 100 / 1000000000000000000
-                      } Bonus, Release Date & Time : ${new Date(
-                        purchase.unlockTime * 1000
-                      ).toLocaleString()}`}
-                      {!purchase.claimed &&
-                        Math.floor(Date.now() / 1000) > purchase.unlockTime && (
-                          <button
-                            onClick={() =>
-                              claimTokens(purchase.unlockTime, purchase.claimed)
-                            }
-                            className="md:ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-2 py-1"
-                          >
-                            Claim
-                          </button>
-                        )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            </div>
           </>
         ) : null}
 
@@ -400,4 +341,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default ICOHeader;

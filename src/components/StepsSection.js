@@ -6,24 +6,20 @@ function StepsSection() {
 
   const steps = [
     {
-      title: t("Connecting buyers and sellers"),
-      description: t(
-        "Buyers and sellers connect directly on the Giver platform."
-      ),
+      title: t("howTo.step1Header"),
+      description: t("howTo.step1Description"),
     },
     {
-      title: t("Using Giver Token"),
-      description: t("Buyers pay for carbon credits with Giver Token."),
+      title: t("howTo.step2Header"),
+      description: t("howTo.step2Description"),
     },
     {
-      title: t("Smart Contracts"),
-      description: t(
-        "Transactions are secured and automated via Smart Contracts."
-      ),
+      title: t("howTo.step3Header"),
+      description: t("howTo.step3Description"),
     },
     {
-      title: t("Net Zero Together 2"),
-      description: t("Net Zero Together 2 Description"),
+      title: t("howTo.step4Header"),
+      description: t("howTo.step4Description"),
     },
   ];
 
@@ -46,13 +42,14 @@ function StepsSection() {
       <div className="w-full flex flex-col items-center">
         <div className="text-center mb-28">
           <h2 className="text-3xl sm:text-4xl font-bold">
-            {t("How to")} <span className="text-[#517008]">{t("Giver")}</span>{" "}
+            {t("howTo.how")}{" "}
+            <span className="text-[#517008]">{t("giver")}</span>{" "}
             {/* Conditionally render "Works" based on language */}
-            {i18n.language === "en" ? t("Works") : ""}
+            {i18n.language === "en" ? t("howTo.works") : ""}
           </h2>
 
           <p className="mt-7 text-lg sm:text-xl font-semibold text-[#92B344]">
-            {t("Four steps to carbon credit trading on Giver")}
+            {t("howTo.subHeader")}
           </p>
         </div>
         <div className="flex flex-col md:flex-row w-full relative gap-0">

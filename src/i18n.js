@@ -2,7 +2,7 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import enTranslations from "./locales/en.json";
 import thTranslations from "./locales/th.json";
-// import jpTranslations from "./locales/jp.json";
+import jpTranslations from "./locales/jp.json";
 // import cnTranslations from "./locales/cn.json";
 // import vnTranslations from "./locales/vn.json";
 // import mlTranslations from "./locales/ml.json";
@@ -14,9 +14,9 @@ const resources = {
   th: {
     translation: thTranslations,
   },
-  // jp: {
-  //   translation: jpTranslations,
-  // },
+  jp: {
+    translation: jpTranslations,
+  },
   // cn: {
   //   translation: cnTranslations,
   // },
@@ -29,20 +29,17 @@ const resources = {
 };
 
 i18n.use(initReactI18next).init({
-  lng: "en",
+  // lng: "en",
   resources,
   react: {
     useSuspense: false,
   },
 
-  backend: {
-    loadPath: "/locales/{{lng}}.json",
-  },
   fallbackLng: "en",
   interpolation: {
     escapeValue: false,
   },
-  load: "languageOnly",
+  // load: "languageOnly",
 });
 
 export default i18n;

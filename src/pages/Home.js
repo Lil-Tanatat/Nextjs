@@ -8,10 +8,10 @@ import StepsSection from "../components/StepsSection";
 import TokenomicsSection from "../components/TokenomicsSection";
 import RoadmapSection from "../components/RoadmapSection";
 import DownloadSection from "../components/DownloadSection";
-import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 
 function Home() {
-  const { t } = useTranslation();
+  // const { t } = useTranslation();
 
   useEffect(() => {
     AOS.init({ duration: 1000 });

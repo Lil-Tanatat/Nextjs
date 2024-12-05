@@ -10,7 +10,7 @@ function DownloadSection() {
   return (
     <section>
       <p className="mt-10 mb-10 font-semibold text-[#053B25] text-[24px] md:text-[32px] text-center">
-        {t("*Privilege for Pre-sale Customer")}
+        {t("privillage")}
       </p>
       <div
         className="relative bg-cover bg-center py-16 px-8"
@@ -45,31 +45,31 @@ function DownloadSection() {
           {/* Right Section */}
           <div className="p-6 flex-1">
             <h3 className="text-[32px] font-bold mb-4 text-center lg:text-left">
-              {t("More Documents")}
+              {t("document.more")}
             </h3>
             <ul className="text-left space-y-4">
               <li className="flex flex-col items-left">
                 <span className="font-medium">
-                  1. {t("White Paper EN Version")}
+                  1. {t("document.whitepaperEN")}
                 </span>
                 <a
                   href="/pdf/whitepaper-en.pdf"
                   download="whitepaper-en"
                   className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px] text-center"
                 >
-                  {t("Download")}
+                  {t("document.download")}
                 </a>
               </li>
               <li className="flex flex-col items-left">
                 <span className="font-medium">
-                  2. {t("White Paper TH Version")}
+                  2. {t("document.whitepaperTH")}
                 </span>
                 <a
                   href="/pdf/whitepaper-th.pdf"
                   download="whitepaper-th"
                   className="ml-4 mt-6 px-4 py-2 text-[16px] font-bold rounded-full border border-black hover:bg-gray-200 w-[233px] h-[44px] text-center"
                 >
-                  {t("Download")}
+                  {t("document.download")}
                 </a>
               </li>
               {/* <li className="flex flex-col items-left">

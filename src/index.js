@@ -7,6 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 import en from "./locales/en.json";
 import th from "./locales/th.json";
 import i18next from "i18next";
+import 'font-awesome/css/font-awesome.min.css';
 
 i18next.init({
   interpolation: { escapeValue: false },

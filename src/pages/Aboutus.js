@@ -9,11 +9,16 @@ function AboutUs() {
 
   return (
     <div>
-      <div className="bg-[#92B344] py-10 px-4 md:px-20 text-left">
+      <motion.div
+        className="bg-[#92B344] py-10 px-4 md:px-20 text-center w-full"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
         <h1 className="text-3xl md:text-4xl font-bold text-white">
           {t("about_us.title")}
         </h1>
-      </div>
+      </motion.div>
 
       <section className="bg-[#F5F5F5] p-4 md:p-10 space-y-10 flex flex-col items-center">
         {/* Section 1 */}

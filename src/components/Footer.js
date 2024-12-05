@@ -66,34 +66,26 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="hidden md:block border-l-2 border-black h-32 mx-4" />
 
         <div className="flex flex-col items-start">
           <div className="flex space-x-3 mb-4">
             <a href="#">
-              <img
-                src={Facebook}
-                alt="Facebook"
-                className="w-5 h-5"
-              />
+              <img src={Facebook} alt="Facebook" className="w-5 h-5" />
             </a>
-            <a href="#">
+            <a href="giver.tokens@outlook.com">
               <img src={Mail} alt="Mail" className="w-5 h-5" />
             </a>
             <a href="#">
-              <img
-                src={Instagram}
-                alt="Instagram"
-                className="w-5 h-5"
-              />
+              <img src={Instagram} alt="Instagram" className="w-5 h-5" />
             </a>
             <a href="#">
               <img src={X} alt="X" className="w-5 h-5" />
             </a>
           </div>
           <address className="not-italic text-lg">
-            <p>Email: giver.token@gmail.com</p>
+            <p>Email: giver.tokens@outlook.com</p>
             <p>Facebook: Giver Token</p>
             <p>IG: Giver_Token</p>
             <p>X.com: Giver_Token</p>
