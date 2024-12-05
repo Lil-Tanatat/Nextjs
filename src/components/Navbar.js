@@ -150,11 +150,11 @@ function Navbar() {
                 {t("presale")}
               </button>
             </Link>
-            <Link to="/ico">
+            {/* <Link to="/ico">
               <button className="w-full bg-[#92B344] text-white px-4 py-2 rounded-full text-[clamp(12px, 1.2vw, 16px)] mt-2">
                 {t("ICO")}
               </button>
-            </Link>
+            </Link> */}
           </li>
         </ul>
 
@@ -165,11 +165,11 @@ function Navbar() {
               {t("presale")}
             </button>
           </Link>
-          <Link to="/ico">
+          {/* <Link to="/ico">
             <button className="min-w-[80px] w-[clamp(80px, 20%, 120px)] bg-[#92B344] text-white px-4 py-1 rounded-full text-[clamp(12px, 2vw, 16px)]">
               {t("ICO")}
             </button>
-          </Link>
+          </Link> */}
 
           <div className="relative">
             {/* <GlobeAltIcon className="absolute left-2 top-2 w-5 h-5 text-gray-700" /> */}
