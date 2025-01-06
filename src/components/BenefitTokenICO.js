@@ -5,8 +5,8 @@ import { useTranslation } from "react-i18next";
 
 const benefits = [
   {
-    titleKey: "benefits.benefit1_title",
-    descriptionKey: "benefits.benefit1_description",
+    titleKey: "benefits.benefit1_ico_title",
+    descriptionKey: "benefits.benefit1_ico_description",
   },
   {
     titleKey: "benefits.benefit2_title",

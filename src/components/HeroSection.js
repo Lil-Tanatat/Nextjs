@@ -49,7 +49,7 @@ function HeroSection() {
               transition={{ duration: 0.8, delay: 0.5 }}
               className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] lg:w-[79px] lg:h-[79px] relative z-10 mr-3 md:mr-0"
             />
-            <Link to="/tokensale">
+            <Link to="/ico">
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

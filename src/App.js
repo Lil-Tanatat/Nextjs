@@ -14,6 +14,7 @@ import RoadMap from "./pages/Roadmap";
 import TokenInfo from "./pages/TokenInfo";
 import FAQ from "./pages/FAQ";
 import WhitePaper from "./pages/Whitepaper";
+import WithdrawICOPage from "./components/WithdrawICO";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
         <Route path="/tokeninfo" element={<TokenInfo />} />
         <Route path="/faq" element={<FAQ />} />
         <Route path="/withdraw" element={<WithdrawPage />} />
+        <Route path="/withdraw-ico" element={<WithdrawICOPage />} />
       </Routes>
       <Footer />
     </Router>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
 import ICOABI from "../ABI/ICOABI.json";
-import USDTTestABI from "../ABI/USDTTestABI.json";
-// import USDTABI from "../ABI/USDTABI.json";
+// import USDTTestABI from "../ABI/USDTTestABI.json";
+import USDTABI from "../ABI/USDTABI.json";
 import CoinToken from "../assets/images/Coin Token.png";
 import { motion } from "framer-motion";
 import Coin from "../assets/images/Coin.png";
@@ -11,8 +11,8 @@ import USDT from "../assets/images/usdt.png";
 import ARROW from "../assets/images/arrow.png";
 import GIVER from "../assets/images/giver.png";
 
-const presaleContractAddress = "0xc09631F4582692f77374220bbe3f61c8Ae415110";
-const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
+const presaleContractAddress = "0xc623E9131E615aeF4687EF24296aB7d4a7FDE870";
+const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
 const formatAccount = (account) => {
   if (window.innerWidth < 500) {
     return `${account.slice(0, 6)}...${account.slice(-6)}`;
@@ -142,10 +142,7 @@ const Header = () => {
         ICOABI,
         presaleContractAddress
       );
-      const usdtContract = new web3.eth.Contract(
-        USDTTestABI,
-        usdtContractAddress
-      );
+      const usdtContract = new web3.eth.Contract(USDTABI, usdtContractAddress);
 
       const usdtBalance = await usdtContract.methods.balanceOf(account).call();
       if (parseFloat(web3.utils.fromWei(usdtBalance, "ether")) < usdtValue) {
@@ -404,18 +401,18 @@ const Header = () => {
                     <li key={index} className="text-white">
                       {`Amount: ${
                         purchase.tokenAmount / 1000000000000000000
-                      } GIV + ${
-                        (purchase.tokenAmount * 20) / 100 / 1000000000000000000
-                      } Bonus, Release Date & Time : ${new Date(
-                        purchase.unlockTime * 1000
-                      ).toLocaleString()}`}
+                      } GIV : Claim Your Tokens Here 
+                      `}
+                      <span className=" ml-2 mt-3 text-2xl text-red-600">
+                        {"->"}
+                      </span>
                       {!purchase.claimed &&
                         Math.floor(Date.now() / 1000) > purchase.unlockTime && (
                           <button
                             onClick={() =>
                               claimTokens(purchase.unlockTime, purchase.claimed)
                             }
-                            className="md:ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-2 py-1"
+                            className="md:ml-8 bg-green-900 hover:bg-green-600 transition-colors text-white text-2xl font-semibold rounded px-10 py-1"
                           >
                             Claim
                           </button>

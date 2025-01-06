@@ -7,7 +7,7 @@
   "tokenInfo": "Token Info",
   "faq": "FAQ",
   "about": "About",
-  "presale": "Presale",
+  "presale": "Presale (Ended)",
   "blog": "Blog",
   "aboutUs": "About Us",
   "contactUs": "Contact Us",
@@ -103,6 +103,8 @@
     "benefit2_description": "By joining our pre-sale, you will automatically be added to the whitelist automatically",
     "benefit3_title": "Priority Access to Carbon Credit Trading",
     "benefit3_description": "on the Giver platform one quarter before regular token holders.",
+    "benefit1_ico_title": "Referral Bonus 3%",
+    "benefit1_ico_description": "3% Bonus from the total number of tokens purchased by your referral.",
     "token_name": "Giver",
     "token_presale": "Token Presale"
   },
