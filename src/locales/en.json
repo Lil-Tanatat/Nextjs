@@ -92,7 +92,8 @@
     "purchased": "You Already Have Purchased Tokens Please Wait To Claim On Release Date & Time",
     "enter_usdt": "Enter USDT Amount",
     "click_buy": "Click To Buy Giver With USDT",
-    "buy_button": "Buy Tokens"
+    "buy_button": "Buy Tokens",
+    "refferal": "Referral Wallet Address (optional)"
   },
   "benefits": {
     "benefits_title": "Benefits of Participating in the",
@@ -253,6 +254,7 @@
     "stepsTitle": "Steps to Participate in the ICO",
     "purchase": "Purchase Giver Tokens Here",
     "enterusdt": "Enter USDT Amount",
-    "estimate": "Estimated GIV Tokens"
+    "estimate": "Estimated GIV Tokens",
+    "buy": "Buy Giver Tokens"
   }
 }

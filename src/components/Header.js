@@ -331,8 +331,9 @@ const Header = () => {
             </div>
             {purchaseHistory.length === 0 && (
               <div className="mt-2">
-                <div>
-                  <p className="text-[14px] md:text-[16px] font-medium text-white">
+                <div className="text-red-600  text-center my-4 text-2xl font-bold">
+                  You Don't Have any Purchase History
+                  {/* <p className="text-[14px] md:text-[16px] font-medium text-white">
                     3) {t("presalePage.enter_usdt")} (0.01 USDT = 1 Giver) :
                   </p>
                   <input
@@ -341,10 +342,10 @@ const Header = () => {
                     className="w-full md:w-1/4 px-4 py-2 rounded-md border focus:outline-none focus:border-green-500 md:ml-8 my-4"
                     value={usdtAmount}
                     onChange={(e) => setUsdtAmount(e.target.value)}
-                  />
+                  /> */}
                 </div>
                 <div className="mt-2">
-                  <p className="text-[14px] md:text-[16px] font-medium text-white my-4">
+                  {/* <p className="text-[14px] md:text-[16px] font-medium text-white my-4">
                     4) {t("presalePage.click_buy")} :
                   </p>
                   <button
@@ -352,7 +353,7 @@ const Header = () => {
                     className=" mt-1 w-full md:w-1/4 bg-green-900 hover:bg-green-600 transition-colors text-white font-semibold rounded px-4 py-2 md:ml-8"
                   >
                     {t("presalePage.buy_button")}
-                  </button>
+                  </button> */}
                 </div>
               </div>
             )}

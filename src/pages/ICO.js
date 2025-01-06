@@ -5,6 +5,7 @@ import Benefits from "../components/BenefitTokenSection";
 import FAQ from "../components/FAQSection";
 import InvestmentFundsSection from "../components/Investment";
 import ICOHeader from "../components/ICOHeader";
+import BenefitsICO from "../components/BenefitTokenICO";
 
 function ICO() {
   return (
@@ -22,7 +23,7 @@ function ICO() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <Benefits />
+        <BenefitsICO />
       </motion.div>
 
       <motion.div

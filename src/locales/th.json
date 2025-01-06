@@ -91,7 +91,8 @@
     "purchased": "คุณซื้อโทเค็นแล้ว กรุณารอรับโทเค็นในวันที่กำหนด",
     "enter_usdt": "กรอกจำนวน USDT",
     "click_buy": "คลิกเพื่อซื้อโทเค็น Giver ด้วย USDT",
-    "buy_button": "ซื้อโทเค็น"
+    "buy_button": "ซื้อโทเค็น",
+    "refferal": "เลขกระเป๋าผู้แนะนำ (ถ้ามี)"
   },
   "benefits": {
     "benefits_title": "ประโยชน์ของการเข้าร่วม",
@@ -252,6 +253,7 @@
     "stepsTitle": "ขั้นตอนการเข้าร่วม ICO",
     "purchase": "ซื้อ Token Giver ของคุณที่นี่",
     "enterusdt": "ใส่จำนวน USDT",
-    "estimate": "เหรียญ Giver ที่จะได้รับ"
+    "estimate": "เหรียญ Giver ที่จะได้รับ",
+    "buy": "ซื้อเหรียญ Giver"
   }
 }

@@ -19,6 +19,8 @@ const Blog = () => {
   const [blogPosts, setBlogPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [pinnedPost, setPinnedPost] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1); // Current page state
+  const postsPerPage = 6; // Number of posts per page
 
   useEffect(() => {
     const fetchBlogPosts = async () => {
@@ -39,7 +41,7 @@ const Blog = () => {
         const otherPosts = posts.filter((post) => !post.pin); // Filter out the rest of the posts
 
         setPinnedPost(pinned);
-        setBlogPosts(posts);
+        setBlogPosts(otherPosts); // Set only non-pinned posts for pagination
         setLoading(false);
       } catch (error) {
         console.error("Error fetching blog posts:", error);
@@ -49,6 +51,12 @@ const Blog = () => {
 
     fetchBlogPosts();
   }, []);
+
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   if (loading) {
     return (
@@ -77,23 +85,6 @@ const Blog = () => {
       >
         News & Events
       </motion.h1>
-
-      {/* Filter Buttons */}
-      {/* <motion.div
-        variants={fadeIn}
-        transition={{ duration: 1, delay: 0.4 }}
-        className="flex flex-wrap justify-center gap-4 mb-12"
-      >
-        <button className="px-6 py-2 bg-[#517008] text-white font-medium rounded-full hover:bg-[#426107]">
-          All
-        </button>
-        <button className="px-6 py-2 bg-gray-200 text-[#517008] font-medium rounded-full hover:bg-gray-300">
-          Token News
-        </button>
-        <button className="px-6 py-2 bg-gray-200 text-[#517008] font-medium rounded-full hover:bg-gray-300">
-          Sustain Activities
-        </button>
-      </motion.div> */}
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Pin Post */}
@@ -128,7 +119,7 @@ const Blog = () => {
           </motion.div>
         )}
         {/* Blog Posts */}
-        {blogPosts.map((post, index) => (
+        {currentPosts.map((post, index) => (
           <a href={post.facebookLink} target="_blank" rel="noopener noreferrer">
             <motion.div
               key={post.id}
@@ -161,6 +152,25 @@ const Blog = () => {
             </motion.div>
           </a>
         ))}
+      </div>
+
+      {/* Pagination */}
+      <div className="flex justify-center mt-8">
+        {Array.from({ length: Math.ceil(blogPosts.length / postsPerPage) }).map(
+          (_, index) => (
+            <button
+              key={index}
+              onClick={() => paginate(index + 1)}
+              className={`px-4 py-2 mx-1 ${
+                currentPage === index + 1
+                  ? "bg-[#517008] text-white"
+                  : "bg-gray-200 text-[#517008]"
+              } rounded-md hover:bg-[#426107]`}
+            >
+              {index + 1}
+            </button>
+          )
+        )}
       </div>
     </motion.div>
   );
