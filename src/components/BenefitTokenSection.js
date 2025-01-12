@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import BG1 from "../assets/images/BG_1.png";
+import BG1 from "../assets/images/bg-benefit.jpeg";
 import { useTranslation } from "react-i18next";
 
 const benefits = [
