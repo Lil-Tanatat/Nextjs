@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom"; // Add this import
 import Web3 from "web3";
 import ICOABI from "../ABI/ICOABI.json";
 import USDTTestABI from "../ABI/USDTTestABI.json";
@@ -20,6 +21,7 @@ const formatAccount = (account) => {
   return account;
 };
 const Header = () => {
+  const { wallet } = useParams(); // Get the wallet parameter from the URL
   const [timeLeft, setTimeLeft] = useState({
     days: "00",
     hours: "00",
@@ -31,7 +33,7 @@ const Header = () => {
   const [usdtAmount, setUsdtAmount] = useState("");
   const [message, setMessage] = useState("");
   const [purchaseHistory, setPurchaseHistory] = useState([]);
-  const [recommender, setRecommender] = useState("");
+  const [recommender, setRecommender] = useState(wallet || ""); // Set the recommender wallet address from the URL
   const givEstimate = usdtAmount * 100;
 
   // Countdown Timer
@@ -142,6 +144,10 @@ const Header = () => {
       return;
     }
 
+    // Set default recommender wallet address if not provided
+    const recommenderAddress =
+      recommender || "0x6A712133765028065c15B480Cf4200126950dc3F";
+
     try {
       const web3 = new Web3(window.ethereum);
       const presaleContract = new web3.eth.Contract(
@@ -177,7 +183,7 @@ const Header = () => {
 
       const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
-        .buyTokens(usdtAmountInWei, recommender)
+        .buyTokens(usdtAmountInWei, recommenderAddress)
         .send({ from: account, gas: 200000 });
 
       setMessage("Transaction successful! Tokens purchased.");
