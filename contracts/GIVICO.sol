@@ -23,6 +23,7 @@ contract GIVICO {
     uint256 public pricePerToken = 1e16; // 0.01 USDT per GIV (18 decimals)
     uint256 public lockTime = 1 seconds; // 1 second
     uint256 public bonusPercentage = 0; // 0% bonus
+    uint256 public recommenderBonusPercentage = 3; // 3% bonus for recommender
 
     struct Purchase {
         uint256 amount;
@@ -36,6 +37,8 @@ contract GIVICO {
     event TokensPurchased(address buyer, uint256 amount, uint256 unlockTime);
     event TokensReleased(address buyer, uint256 amountWithBonus);
     event TokensWithdrawn(address token, uint256 amount);
+    event RecommenderBonusTransferred(address recommender, uint256 bonusAmount); // New event for logging
+    event Debug(string message); // New event for debugging
 
     constructor(address _givToken, address _usdtToken) {
         owner = msg.sender;
@@ -48,16 +51,24 @@ contract GIVICO {
         _;
     }
 
-    function buyTokens(uint256 usdtAmount) external {
+    function buyTokens(uint256 usdtAmount, address recommender) external {
         require(usdtAmount > 0, "Must send USDT to buy GIV tokens");
 
         uint256 tokenAmount = (usdtAmount * 1e18) / pricePerToken;
 
         // Transfer USDT from buyer to contract
-        require(
-            usdtToken.transferFrom(msg.sender, address(this), usdtAmount),
-            "USDT transfer failed"
-        );
+        try
+            usdtToken.transferFrom(msg.sender, address(this), usdtAmount)
+        returns (bool success) {
+            require(success, "USDT transfer failed");
+            emit Debug("USDT transfer successful");
+        } catch Error(string memory reason) {
+            emit Debug(reason);
+            revert(reason);
+        } catch {
+            emit Debug("USDT transfer failed without reason");
+            revert("USDT transfer failed without reason");
+        }
 
         // Lock tokens for lockTime
         purchases[msg.sender] = Purchase({
@@ -69,6 +80,28 @@ contract GIVICO {
         // Add buyer to the array if not already present
         if (buyers.length == 0 || buyers[buyers.length - 1] != msg.sender) {
             buyers.push(msg.sender);
+        }
+
+        // If recommender is provided, transfer bonus tokens
+        if (recommender != address(0)) {
+            uint256 bonusAmount = (tokenAmount * recommenderBonusPercentage) /
+                100;
+            try givToken.transfer(recommender, bonusAmount) returns (
+                bool success
+            ) {
+                require(success, "GIV token transfer to recommender failed");
+                emit RecommenderBonusTransferred(recommender, bonusAmount); // Log the bonus transfer
+            } catch Error(string memory reason) {
+                emit Debug(reason);
+                revert(reason);
+            } catch {
+                emit Debug(
+                    "GIV token transfer to recommender failed without reason"
+                );
+                revert(
+                    "GIV token transfer to recommender failed without reason"
+                );
+            }
         }
 
         emit TokensPurchased(

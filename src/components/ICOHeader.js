@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
 import ICOABI from "../ABI/ICOABI.json";
-// import USDTTestABI from "../ABI/USDTTestABI.json";
-import USDTABI from "../ABI/USDTABI.json";
+import USDTTestABI from "../ABI/USDTTestABI.json";
+// import USDTABI from "../ABI/USDTABI.json";
 import CoinToken from "../assets/images/Coin Token.png";
 import { motion } from "framer-motion";
 import Coin from "../assets/images/Coin.png";
@@ -11,8 +11,8 @@ import USDT from "../assets/images/usdt.png";
 import ARROW from "../assets/images/arrow.png";
 import GIVER from "../assets/images/giver.png";
 
-const presaleContractAddress = "0xc623E9131E615aeF4687EF24296aB7d4a7FDE870";
-const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
+const presaleContractAddress = "0x68f997d606257FA6f60a5cE1acB206bFeE0E83E8";
+const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
 const formatAccount = (account) => {
   if (window.innerWidth < 500) {
     return `${account.slice(0, 6)}...${account.slice(-6)}`;
@@ -31,6 +31,7 @@ const Header = () => {
   const [usdtAmount, setUsdtAmount] = useState("");
   const [message, setMessage] = useState("");
   const [purchaseHistory, setPurchaseHistory] = useState([]);
+  const [recommender, setRecommender] = useState("");
   const givEstimate = usdtAmount * 100;
 
   // Countdown Timer
@@ -136,13 +137,21 @@ const Header = () => {
       return;
     }
 
+    if (recommender && !Web3.utils.isAddress(recommender)) {
+      setMessage("Please enter a valid recommender wallet address.");
+      return;
+    }
+
     try {
       const web3 = new Web3(window.ethereum);
       const presaleContract = new web3.eth.Contract(
         ICOABI,
         presaleContractAddress
       );
-      const usdtContract = new web3.eth.Contract(USDTABI, usdtContractAddress);
+      const usdtContract = new web3.eth.Contract(
+        USDTTestABI,
+        usdtContractAddress
+      );
 
       const usdtBalance = await usdtContract.methods.balanceOf(account).call();
       if (parseFloat(web3.utils.fromWei(usdtBalance, "ether")) < usdtValue) {
@@ -168,7 +177,7 @@ const Header = () => {
 
       const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
-        .buyTokens(usdtAmountInWei)
+        .buyTokens(usdtAmountInWei, recommender)
         .send({ from: account, gas: 200000 });
 
       setMessage("Transaction successful! Tokens purchased.");
@@ -358,6 +367,16 @@ const Header = () => {
                             placeholder="Enter USDT amount"
                             value={usdtAmount}
                             onChange={(e) => setUsdtAmount(e.target.value)}
+                            className="w-full p-2 text-lg rounded border border-gray-400 h-10"
+                          />
+                          <p className="text-[14px] md:text-[16px] font-medium text-white mb-2">
+                            Recommender Wallet Address (optional):
+                          </p>
+                          <input
+                            type="text"
+                            placeholder="Enter Recommender Wallet Address"
+                            value={recommender}
+                            onChange={(e) => setRecommender(e.target.value)}
                             className="w-full p-2 text-lg rounded border border-gray-400 h-10"
                           />
                         </div>
