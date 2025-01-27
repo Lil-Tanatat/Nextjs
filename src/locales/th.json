@@ -262,5 +262,17 @@
     "enterusdt": "ใส่จำนวน USDT",
     "estimate": "เหรียญ Giver ที่จะได้รับ",
     "buy": "ซื้อเหรียญ Giver"
-  }
+  },
+  "copy": "คัดลอก",
+  "copied": "คัดลอกแล้ว",
+  "installMetaMask": "กรุณาติดตั้ง MetaMask เพื่อใช้ฟีเจอร์นี้",
+  "welcomeToGiverReferralProgram": "ยินดีต้อนรับสู่โปรแกรมแนะนำ GIVER",
+  "sendReferralLink": "ส่งลิงก์แนะนำของคุณให้เพื่อนเพื่อรับ GIV ฟรี",
+  "walletConnected": "กระเป๋าเงินเชื่อมต่อแล้ว",
+  "connectWallet": "เชื่อมต่อกระเป๋าเงิน",
+  "tokenBalance": "ยอดโทเค็น",
+  "buyGiv": "ซื้อ GIV",
+  "referralLink": "ลิงก์แนะนำ (รับ 3% จากยอดซื้อของผู้ได้รับลิงค์นี้)",
+  "news": "ข่าว",
+  "seeMore": "ดูเพิ่มเติม"
 }

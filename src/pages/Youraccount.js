@@ -3,17 +3,19 @@ import { Link, useNavigate } from "react-router-dom";
 import YourAccountImage from "../assets/images/your-account.png";
 import Web3 from "web3";
 import FetchBalance from "../ABI/FetchBalance.json";
+import { useTranslation } from "react-i18next";
 
 const YourAccount = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [tokenBalance, setTokenBalance] = useState(0);
   const [walletAddress, setWalletAddress] = useState("");
   const [referralLink, setReferralLink] = useState("");
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [isCopyButtonDisabled, setIsCopyButtonDisabled] = useState(false);
-  const [copyButtonText, setCopyButtonText] = useState("Copy");
+  const [copyButtonText, setCopyButtonText] = useState(t("copy"));
 
-  const tokenAddress = "0x8acC2e02524116DF58dA6bCC07eC9FF1b0AD6BbB";
+  const tokenAddress = "0x98824D0e3f0831bFd19576be9B3531B21d0E862d";
   const tokenABI = FetchBalance;
 
   const onBuyToken = () => {
@@ -22,10 +24,10 @@ const YourAccount = () => {
 
   const onCopyReferralLink = () => {
     navigator.clipboard.writeText(referralLink);
-    setCopyButtonText("Copied");
+    setCopyButtonText(t("copied"));
     setIsCopyButtonDisabled(true);
     setTimeout(() => {
-      setCopyButtonText("Copy");
+      setCopyButtonText(t("copy"));
       setIsCopyButtonDisabled(false);
     }, 3000);
   };
@@ -49,7 +51,7 @@ const YourAccount = () => {
         console.error("Error connecting to wallet:", error);
       }
     } else {
-      alert("Please install MetaMask to use this feature.");
+      alert(t("installMetaMask"));
     }
   };
 
@@ -84,10 +86,10 @@ const YourAccount = () => {
           </div>
           <div className="col-span-12 lg:col-span-8">
             <h1 className="text-xl lg:text-3xl font-bold text-green-800 mb-3 text-center lg:text-start mt-5">
-              Welcome To GIVER Refferal program
+              {t("welcomeToGiverReferralProgram")}
             </h1>
-            <h2 className="text-md lg:text-xl  text-black text-center lg:text-start">
-              Send your refferal link to your friend to get free GIVS.
+            <h2 className="text-md lg:text-xl text-black text-center lg:text-start">
+              {t("sendReferralLink")}
             </h2>
 
             <button
@@ -100,7 +102,7 @@ const YourAccount = () => {
                   : "bg-[#92B344] hover:bg-mls-primary hover:text-mls-black"
               }`}
             >
-              {isWalletConnected ? "Wallet Connected" : "Connect Wallet"}
+              {isWalletConnected ? t("walletConnected") : t("connectWallet")}
             </button>
 
             <div className="grid grid-cols-12 gap-4 mb-5">
@@ -109,7 +111,7 @@ const YourAccount = () => {
                   <div className="flex flex-row items-center justify-between">
                     <div>
                       <div className="text-black font-medium text-sm lg:text-base mb-2">
-                        Token Balance
+                        {t("tokenBalance")}
                         <div className="inline">
                           <span className="text-black inline cursor-pointer ml-2">
                             👁️
@@ -128,9 +130,9 @@ const YourAccount = () => {
                   <button
                     onClick={onBuyToken}
                     type="button"
-                    className="btn bg-[#92B344] rounded-3xl text-white hover:bg-mls-primary hover:text-mls-black text-xs lg:text-base px-6 py-3  border-none shadow-none w-36 lg:w-40"
+                    className="btn bg-[#92B344] rounded-3xl text-white hover:bg-mls-primary hover:text-mls-black text-xs lg:text-base px-6 py-3 border-none shadow-none w-36 lg:w-40"
                   >
-                    Buy GIV
+                    {t("buyGiv")}
                   </button>
                 </div>
               </div>
@@ -141,7 +143,7 @@ const YourAccount = () => {
                   htmlFor="Email"
                   className="text-black text-lg font-light"
                 >
-                  Referral Link
+                  {t("referralLink")}
                 </label>
                 <div className="flex flex-row">
                   <div className="relative text-white-dark">
@@ -174,11 +176,11 @@ const YourAccount = () => {
               <div className="col-span-12 lg:col-span-6 mt-2 lg:mt-4">
                 <div className="flex flex-row items-center justify-between mb-2 max-w-full w-full">
                   <div className="text-lg lg:text-xl text-black font-medium">
-                    News
+                    {t("news")}
                   </div>
                   <Link to="/blog">
                     <button className="btn text-mls-primary px-4 max-h-max h-7 flex items-center justify-center rounded-lg hover:bg-mls-light-gray border-none shadow-none">
-                      See More
+                      {t("seeMore")}
                     </button>
                   </Link>
                 </div>

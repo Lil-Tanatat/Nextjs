@@ -263,5 +263,17 @@
     "enterusdt": "Enter USDT Amount",
     "estimate": "Estimated GIV Tokens",
     "buy": "Buy Giver Tokens"
-  }
+  },
+  "copy": "Copy",
+  "copied": "Copied",
+  "installMetaMask": "Please install MetaMask to use this feature.",
+  "welcomeToGiverReferralProgram": "Welcome To GIVER Referral Program",
+  "sendReferralLink": "Send your referral link to your friend to get free GIV.",
+  "walletConnected": "Wallet Connected",
+  "connectWallet": "Connect Wallet",
+  "tokenBalance": "Token Balance",
+  "buyGiv": "Buy GIV",
+  "referralLink": "Referral Link (Get 3% from your referral purchase)",
+  "news": "News",
+  "seeMore": "See More"
 }

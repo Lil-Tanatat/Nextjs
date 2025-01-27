@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"; // Add this import
 import Web3 from "web3";
 import ICOABI from "../ABI/ICOABI.json";
-import USDTTestABI from "../ABI/USDTTestABI.json";
-// import USDTABI from "../ABI/USDTABI.json";
+// import USDTTestABI from "../ABI/USDTTestABI.json";
+import USDTABI from "../ABI/USDTABI.json";
 import CoinToken from "../assets/images/Coin Token.png";
 import { motion } from "framer-motion";
 import Coin from "../assets/images/Coin.png";
@@ -12,8 +12,8 @@ import USDT from "../assets/images/usdt.png";
 import ARROW from "../assets/images/arrow.png";
 import GIVER from "../assets/images/giver.png";
 
-const presaleContractAddress = "0x68f997d606257FA6f60a5cE1acB206bFeE0E83E8";
-const usdtContractAddress = "0x337610d27c682E347C9cD60BD4b3b107C9d34dDd";
+const presaleContractAddress = "0xed5d051939cced4039aeac126cecf3fc4f445255";
+const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
 const formatAccount = (account) => {
   if (window.innerWidth < 500) {
     return `${account.slice(0, 6)}...${account.slice(-6)}`;
@@ -154,10 +154,7 @@ const Header = () => {
         ICOABI,
         presaleContractAddress
       );
-      const usdtContract = new web3.eth.Contract(
-        USDTTestABI,
-        usdtContractAddress
-      );
+      const usdtContract = new web3.eth.Contract(USDTABI, usdtContractAddress);
 
       const usdtBalance = await usdtContract.methods.balanceOf(account).call();
       if (parseFloat(web3.utils.fromWei(usdtBalance, "ether")) < usdtValue) {
@@ -184,7 +181,7 @@ const Header = () => {
       const usdtAmountInWei = web3.utils.toWei(usdtAmount.toString(), "ether");
       await presaleContract.methods
         .buyTokens(usdtAmountInWei, recommenderAddress)
-        .send({ from: account, gas: 200000 });
+        .send({ from: account, gas: 300000 });
 
       setMessage("Transaction successful! Tokens purchased.");
       fetchPurchaseHistory(account);
