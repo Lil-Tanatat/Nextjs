@@ -10,6 +10,8 @@ const YourAccount = () => {
   const [walletAddress, setWalletAddress] = useState("");
   const [referralLink, setReferralLink] = useState("");
   const [isWalletConnected, setIsWalletConnected] = useState(false);
+  const [isCopyButtonDisabled, setIsCopyButtonDisabled] = useState(false);
+  const [copyButtonText, setCopyButtonText] = useState("Copy");
 
   const tokenAddress = "0x8acC2e02524116DF58dA6bCC07eC9FF1b0AD6BbB";
   const tokenABI = FetchBalance;
@@ -20,7 +22,12 @@ const YourAccount = () => {
 
   const onCopyReferralLink = () => {
     navigator.clipboard.writeText(referralLink);
-    alert("Referral link copied to clipboard!");
+    setCopyButtonText("Copied");
+    setIsCopyButtonDisabled(true);
+    setTimeout(() => {
+      setCopyButtonText("Copy");
+      setIsCopyButtonDisabled(false);
+    }, 3000);
   };
 
   const connectWallet = async () => {
@@ -151,9 +158,14 @@ const YourAccount = () => {
                   <button
                     onClick={onCopyReferralLink}
                     type="button"
-                    className="btn ml-2 bg-blue-500 text-white rounded-3xl text-mls-black text-xs lg:text-base px-4 py-2 hover:opacity-80 border-none shadow-none w-32 lg:w-36"
+                    disabled={isCopyButtonDisabled}
+                    className={`btn ml-2 rounded-3xl text-xs lg:text-base px-4 py-2 border-none shadow-none w-32 lg:w-36 ${
+                      isCopyButtonDisabled
+                        ? "bg-gray-500 text-white cursor-not-allowed"
+                        : "bg-blue-500 text-white hover:opacity-80"
+                    }`}
                   >
-                    Copy
+                    {copyButtonText}
                   </button>
                 </div>
               </div>
