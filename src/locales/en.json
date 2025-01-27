@@ -7,6 +7,11 @@
   "tokenInfo": "Token Info",
   "faq": "FAQ",
   "about": "About",
+  "campaign": {
+    "title": "Campaign",
+    "refferal": "Referral",
+    "airdrop": "Airdrop"
+  },
   "presale": "Presale (Ended)",
   "blog": "Blog",
   "aboutUs": "About Us",

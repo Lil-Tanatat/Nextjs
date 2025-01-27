@@ -15,6 +15,7 @@ import TokenInfo from "./pages/TokenInfo";
 import FAQ from "./pages/FAQ";
 import WhitePaper from "./pages/Whitepaper";
 import WithdrawICOPage from "./components/WithdrawICO";
+import YourAccount from "./pages/Youraccount";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/tokensale" element={<TokenSale />} />
         <Route path="/ico" element={<ICO />} />
         <Route path="/ico/:wallet" element={<ICO />} />
+        <Route path="/your-account" element={<YourAccount />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contactus" element={<Contactus />} />
         <Route path="/coming-soon" element={<ComingSoon />} />

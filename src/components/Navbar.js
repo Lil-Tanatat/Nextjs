@@ -10,6 +10,7 @@ function Navbar() {
   const [activePage, setActivePage] = useState(location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isAboutDropdownOpen, setIsAboutDropdownOpen] = useState(false);
+  const [isCampaignDropdownOpen, setIsCampaignDropdownOpen] = useState(false);
 
   const pages = [
     { name: t("home"), path: "/" },
@@ -23,6 +24,10 @@ function Navbar() {
     { name: t("aboutUs"), path: "/aboutus" },
     { name: t("contactUs"), path: "/contactus" },
     { name: t("blog"), path: "/Blog" },
+  ];
+  const campaignDropdown = [
+    { name: t("campaign.refferal"), path: "/your-account" },
+    { name: t("campaign.airdrop"), path: "/airdrop" },
   ];
 
   const changeLanguage = (lng) => {
@@ -120,7 +125,8 @@ function Navbar() {
             onMouseLeave={() => setIsAboutDropdownOpen(false)}
           >
             <button className="block md:inline cursor-pointer text-[clamp(12px, 1.2vw, 16px)] hover:text-green-600">
-              {t("about")}
+              {t("about")}{" "}
+              <span className="ml-1">{isAboutDropdownOpen ? "▲" : "▼"}</span>
             </button>
             {isAboutDropdownOpen && (
               <ul className="absolute top-full left-0 bg-white shadow-lg border rounded-md w-40 z-50">
@@ -142,7 +148,35 @@ function Navbar() {
               </ul>
             )}
           </li>
-
+          <li
+            className="relative border-b md:border-none py-2 md:py-0 md:px-1 lg:px-2 "
+            onMouseEnter={() => setIsCampaignDropdownOpen(true)}
+            onMouseLeave={() => setIsCampaignDropdownOpen(false)}
+          >
+            <button className="block md:inline cursor-pointer text-[clamp(12px, 1.2vw, 16px)] hover:text-green-600">
+              {t("campaign.title")}
+              <span className="ml-1">{isCampaignDropdownOpen ? "▲" : "▼"}</span>
+            </button>
+            {isCampaignDropdownOpen && (
+              <ul className="absolute top-full left-0 bg-white shadow-lg border rounded-md w-40 z-50">
+                {campaignDropdown.map((item, idx) => (
+                  <li key={idx} className="border-b last:border-0">
+                    <Link
+                      to={item.path}
+                      onClick={() => {
+                        setActivePage(item.path);
+                        setIsMenuOpen(false);
+                        setIsCampaignDropdownOpen(false);
+                      }}
+                      className="block px-4 py-2 text-[clamp(12px, 1.2vw, 16px)] hover:bg-gray-100"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </li>
           {/* Token Sale Button for Mobile */}
           <li className="md:hidden border-b md:border-none py-2 md:py-0 md:px-1 lg:px-2">
             <Link to="/tokensale">
