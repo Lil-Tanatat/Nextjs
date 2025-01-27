@@ -12,7 +12,7 @@ import USDT from "../assets/images/usdt.png";
 import ARROW from "../assets/images/arrow.png";
 import GIVER from "../assets/images/giver.png";
 
-const presaleContractAddress = "0xed5d051939cced4039aeac126cecf3fc4f445255";
+const presaleContractAddress = "0xdefa4d7cb8eda4c0f6a560f62159847132296e59";
 const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
 const formatAccount = (account) => {
   if (window.innerWidth < 500) {

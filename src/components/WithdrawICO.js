@@ -4,7 +4,7 @@ import USDTABI from "../ABI/USDTABI.json"; // ABI for the USDT token
 import ICOABI from "../ABI/ICOABI.json"; // ABI of the pre-sale contract
 import CoinToken from "../assets/images/Coin Token.png";
 
-const presaleContractAddress = "0xc623E9131E615aeF4687EF24296aB7d4a7FDE870";
+const presaleContractAddress = "0xdefa4d7cb8eda4c0f6a560f62159847132296e59";
 const usdtTokenAddress = "0x55d398326f99059fF775485246999027B3197955";
 
 const WithdrawICOPage = () => {
@@ -40,7 +40,7 @@ const WithdrawICOPage = () => {
 
       setMessage("Processing GIV withdrawal...");
 
-      await contract.methods.withdrawGIV().send({ from: account });
+      await contract.methods.withdrawGIV().send({ from: account, gas: 300000 });
 
       setMessage("GIV withdrawal successful!");
       fetchBalances();
@@ -75,7 +75,6 @@ const WithdrawICOPage = () => {
 
     try {
       const web3 = new Web3(window.ethereum);
-
       const contract = new web3.eth.Contract(ICOABI, presaleContractAddress);
 
       const owner = await contract.methods.owner().call();
@@ -86,7 +85,9 @@ const WithdrawICOPage = () => {
 
       setMessage("Processing USDT withdrawal...");
 
-      await contract.methods.withdrawUSDT().send({ from: account });
+      await contract.methods
+        .withdrawUSDT()
+        .send({ from: account, gas: 300000 });
 
       setMessage("USDT withdrawal successful!");
       fetchBalances(); // Refresh balances
@@ -124,6 +125,7 @@ const WithdrawICOPage = () => {
 
       await contract.methods.withdrawToken(tokenAddress, amount).send({
         from: account,
+        gas: 300000,
       });
 
       setMessage("Token withdrawal successful!");

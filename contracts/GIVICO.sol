@@ -141,6 +141,8 @@ contract GIVICO {
         uint256 balance = usdtToken.balanceOf(address(this));
         require(balance > 0, "No USDT to withdraw");
         require(usdtToken.transfer(owner, balance), "USDT withdrawal failed");
+
+        emit TokensWithdrawn(address(usdtToken), balance); // Emit event
     }
 
     // Withdraw all GIV tokens (specific to GIV)
