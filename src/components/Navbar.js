@@ -23,7 +23,7 @@ function Navbar() {
   const aboutDropdown = [
     { name: t("aboutUs"), path: "/aboutus" },
     { name: t("contactUs"), path: "/contactus" },
-    { name: t("blog"), path: "/Blog" },
+    { name: t("blog"), path: "/blog" },
   ];
   const campaignDropdown = [
     { name: t("campaign.refferal"), path: "/your-account" },

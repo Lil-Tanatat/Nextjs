@@ -1,22 +1,70 @@
-import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React, { Fragment, useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import YourAccountImage from "../assets/images/your-account.png";
+import Web3 from "web3";
+import FetchBalance from "../ABI/FetchBalance.json";
 
 const YourAccount = () => {
-  // Placeholder data for previewing prototype UX/
   const navigate = useNavigate();
-  const tokenBalance = 1000;
+  const [tokenBalance, setTokenBalance] = useState(0);
+  const [walletAddress, setWalletAddress] = useState("");
+  const [referralLink, setReferralLink] = useState("");
+  const [isWalletConnected, setIsWalletConnected] = useState(false);
+
+  const tokenAddress = "0x8acC2e02524116DF58dA6bCC07eC9FF1b0AD6BbB";
+  const tokenABI = FetchBalance;
+
   const onBuyToken = () => {
     navigate("/ico");
   };
-  const referralLink = "https://example.com/referral";
-  const onCopyReferralLink = () => {};
+
+  const onCopyReferralLink = () => {
+    navigator.clipboard.writeText(referralLink);
+    alert("Referral link copied to clipboard!");
+  };
+
+  const connectWallet = async () => {
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
+      try {
+        await window.ethereum.request({ method: "eth_requestAccounts" });
+        const accounts = await web3.eth.getAccounts();
+        setWalletAddress(accounts[0]);
+        setReferralLink(`https://givertokens.com/ico/${accounts[0]}`);
+        setIsWalletConnected(true);
+
+        const contract = new web3.eth.Contract(tokenABI, tokenAddress);
+        const balance = await contract.methods.balanceOf(accounts[0]).call();
+        setTokenBalance(
+          parseFloat(web3.utils.fromWei(balance, "ether")).toFixed(2)
+        );
+      } catch (error) {
+        console.error("Error connecting to wallet:", error);
+      }
+    } else {
+      alert("Please install MetaMask to use this feature.");
+    }
+  };
+
+  useEffect(() => {
+    if (walletAddress) {
+      setReferralLink(`https://givertokens.com/ico/${walletAddress}`);
+      const fetchTokenBalance = async () => {
+        const web3 = new Web3(window.ethereum);
+        const contract = new web3.eth.Contract(tokenABI, tokenAddress);
+        const balance = await contract.methods.balanceOf(walletAddress).call();
+        setTokenBalance(
+          parseFloat(web3.utils.fromWei(balance, "ether")).toFixed(2)
+        );
+      };
+      fetchTokenBalance();
+    }
+  }, [walletAddress]);
 
   return (
     <Fragment>
       {/* Placeholder components for previewing prototype UX/UI */}
-      <div className="container p-20">
+      <div className="container py-5 px-32">
         <div className="grid grid-cols-12 lg:gap-x-10 bg-white justify-center items-center border border-gray-200 p-10 rounded-2xl">
           <div className="hidden lg:block col-span-12 lg:col-span-4">
             <div className="rounded-xl overflow-hidden max-w-full h-full">
@@ -28,16 +76,29 @@ const YourAccount = () => {
             </div>
           </div>
           <div className="col-span-12 lg:col-span-8">
-            <h1 className="text-3xl lg:text-5xl text-black mb-3 text-center lg:text-start mt-5">
-              Welcome <span className="text-mls-primary">Hoppers</span>,
+            <h1 className="text-xl lg:text-3xl font-bold text-green-800 mb-3 text-center lg:text-start mt-5">
+              Welcome To GIVER Refferal program
             </h1>
-            <h2 className="text-xl lg:text-xl text-black mb-3 text-center lg:text-start">
-              Community-based | Gamification | Ecosystem
+            <h2 className="text-md lg:text-xl  text-black text-center lg:text-start">
+              Send your refferal link to your friend to get free GIVS.
             </h2>
 
+            <button
+              onClick={connectWallet}
+              type="button"
+              disabled={isWalletConnected}
+              className={`py-3 btn my-5 font-bold text-white rounded-3xl text-xs lg:text-base px-6 border-none shadow-none w-56 ${
+                isWalletConnected
+                  ? "bg-gray-500 cursor-not-allowed"
+                  : "bg-[#92B344] hover:bg-mls-primary hover:text-mls-black"
+              }`}
+            >
+              {isWalletConnected ? "Wallet Connected" : "Connect Wallet"}
+            </button>
+
             <div className="grid grid-cols-12 gap-4 mb-5">
-              <div className="col-span-12 lg:col-span-8">
-                <div className="bg-mls-secondary-black border-mls-secondary-gray border-2 rounded-xl p-4 h-full">
+              <div className="col-span-12 lg:col-span-12">
+                <div className="bg-mls-secondary-black border-gray-200 border-2 rounded-xl p-4 w-full h-full">
                   <div className="flex flex-row items-center justify-between">
                     <div>
                       <div className="text-black font-medium text-sm lg:text-base mb-2">
@@ -49,11 +110,7 @@ const YourAccount = () => {
                         </div>
                       </div>
                       <div className="text-yellow-400 text-lg lg:text-3xl">
-                        {tokenBalance.toLocaleString("en-US", {
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })}{" "}
-                        HOPS
+                        {tokenBalance} GIV
                       </div>
                     </div>
                   </div>
@@ -64,7 +121,7 @@ const YourAccount = () => {
                   <button
                     onClick={onBuyToken}
                     type="button"
-                    className="btn bg-[#92B344] rounded-3xl text-black hover:bg-mls-primary hover:text-mls-black text-xs lg:text-base px-6 py-3  border-none shadow-none w-32 lg:w-36"
+                    className="btn bg-[#92B344] rounded-3xl text-white hover:bg-mls-primary hover:text-mls-black text-xs lg:text-base px-6 py-3  border-none shadow-none w-36 lg:w-40"
                   >
                     Buy GIV
                   </button>
@@ -85,7 +142,7 @@ const YourAccount = () => {
                       disabled
                       id="Email"
                       type="text"
-                      placeholder={referralLink}
+                      value={referralLink}
                       className="refferal-link ps-2 h-full w-96 bg-gray-300 placeholder:text-black rounded-lg"
                       autoComplete="off"
                       name="email"
@@ -94,7 +151,7 @@ const YourAccount = () => {
                   <button
                     onClick={onCopyReferralLink}
                     type="button"
-                    className="btn ml-2 bg-mls-primary rounded-3xl text-mls-black text-xs lg:text-base px-4 py-2 hover:opacity-80 border-none shadow-none w-32 lg:w-36"
+                    className="btn ml-2 bg-blue-500 text-white rounded-3xl text-mls-black text-xs lg:text-base px-4 py-2 hover:opacity-80 border-none shadow-none w-32 lg:w-36"
                   >
                     Copy
                   </button>
@@ -107,14 +164,12 @@ const YourAccount = () => {
                   <div className="text-lg lg:text-xl text-black font-medium">
                     News
                   </div>
-                  <Link to="/news">
+                  <Link to="/blog">
                     <button className="btn text-mls-primary px-4 max-h-max h-7 flex items-center justify-center rounded-lg hover:bg-mls-light-gray border-none shadow-none">
                       See More
                     </button>
                   </Link>
                 </div>
-
-                <div>MLSListCard Component</div>
               </div>
             </div>
           </div>
