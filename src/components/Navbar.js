@@ -27,7 +27,7 @@ function Navbar() {
   ];
   const campaignDropdown = [
     { name: t("campaign.refferal"), path: "referral" },
-    { name: t("campaign.airdrop"), path: "/coming-soon" },
+    { name: t("campaign.airdrop"), path: "/airdrop" },
   ];
 
   const changeLanguage = (lng) => {

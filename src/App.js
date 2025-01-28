@@ -16,6 +16,7 @@ import FAQ from "./pages/FAQ";
 import WhitePaper from "./pages/Whitepaper";
 import WithdrawICOPage from "./components/WithdrawICO";
 import YourAccount from "./pages/Youraccount";
+import Airdrop from "./pages/Airdrop";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
         <Route path="/tokensale" element={<TokenSale />} />
+        <Route path="/airdrop" element={<Airdrop />} />
         <Route path="/ico" element={<ICO />} />
         <Route path="/ico/:wallet" element={<ICO />} />
         <Route path="referral" element={<YourAccount />} />
