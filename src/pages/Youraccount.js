@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import YourAccountImage from "../assets/images/your-account.png";
+import YourAccountImage from "../assets/imagesreferral.png";
 import Web3 from "web3";
 import FetchBalance from "../ABI/FetchBalance.json";
 import { useTranslation } from "react-i18next";

@@ -26,7 +26,7 @@ function Navbar() {
     { name: t("blog"), path: "/blog" },
   ];
   const campaignDropdown = [
-    { name: t("campaign.refferal"), path: "/your-account" },
+    { name: t("campaign.refferal"), path: "referral" },
     { name: t("campaign.airdrop"), path: "/airdrop" },
   ];
 
