@@ -60,7 +60,7 @@ const Airdrop = () => {
       await airdropContract.methods
         .claimAirdropX()
         .send({ from: walletAddress });
-      alert("Airdrop claimed successfully!");
+      // alert("Airdrop claimed successfully!");
       setHasClaimedX(false);
     } catch (error) {
       console.error("Error claiming airdrop:", error);
@@ -80,7 +80,7 @@ const Airdrop = () => {
       await airdropContract.methods
         .claimAirdropFacebook()
         .send({ from: walletAddress });
-      alert("Airdrop claimed successfully!");
+      // alert("Airdrop claimed successfully!");
       setHasClaimedFacebook(false);
     } catch (error) {
       console.error("Error claiming airdrop:", error);
@@ -165,16 +165,21 @@ const Airdrop = () => {
                   <button
                     type="button"
                     onClick={handleJoinX}
-                    className="btn bg-[#92B344] rounded-full text-black hover:opacity-80 hover:text-mls-black text-xs lg:text-base py-2 border-none shadow-none w-full lg:w-full"
+                    disabled={!isWalletConnected}
+                    className={`btn ${
+                      isWalletConnected
+                        ? "bg-[#92B344]"
+                        : "bg-gray-500 cursor-not-allowed"
+                    } rounded-full text-black hover:opacity-80 hover:text-mls-black text-xs lg:text-base py-2 border-none shadow-none w-full lg:w-full`}
                   >
                     Join
                   </button>
                   <button
                     type="button"
                     onClick={handleClaimX}
-                    disabled={!hasClaimedX}
+                    disabled={!isWalletConnected || !hasClaimedX}
                     className={`btn ${
-                      hasClaimedX
+                      isWalletConnected && hasClaimedX
                         ? "bg-yellow-500"
                         : "bg-gray-500 cursor-not-allowed"
                     } rounded-full text-black hover:opacity-80 hover:text-mls-black text-xs lg:text-base py-2 border-none shadow-none w-full lg:w-full`}
@@ -211,16 +216,21 @@ const Airdrop = () => {
                   <button
                     type="button"
                     onClick={handleJoinFacebook}
-                    className="btn bg-[#92B344] rounded-full text-black hover:opacity-80 hover:text-mls-black text-xs lg:text-base py-2 border-none shadow-none w-full lg:w-full"
+                    disabled={!isWalletConnected}
+                    className={`btn ${
+                      isWalletConnected
+                        ? "bg-[#92B344]"
+                        : "bg-gray-500 cursor-not-allowed"
+                    } rounded-full text-black hover:opacity-80 hover:text-mls-black text-xs lg:text-base py-2 border-none shadow-none w-full lg:w-full`}
                   >
                     Join
                   </button>
                   <button
                     type="button"
                     onClick={handleClaimFacebook}
-                    disabled={!hasClaimedFacebook}
+                    disabled={!isWalletConnected || !hasClaimedFacebook}
                     className={`btn ${
-                      hasClaimedFacebook
+                      isWalletConnected && hasClaimedFacebook
                         ? "bg-yellow-500"
                         : "bg-gray-500 cursor-not-allowed"
                     } rounded-full text-black hover:opacity-80 hover:text-mls-black text-xs lg:text-base py-2 border-none shadow-none w-full lg:w-full`}
