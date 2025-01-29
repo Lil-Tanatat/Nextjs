@@ -32,6 +32,13 @@ const YourAccount = () => {
     }, 3000);
   };
 
+  const formatBalance = (balance) => {
+    return parseFloat(balance).toLocaleString(undefined, {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  };
+
   const connectWallet = async () => {
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
@@ -44,9 +51,7 @@ const YourAccount = () => {
 
         const contract = new web3.eth.Contract(tokenABI, tokenAddress);
         const balance = await contract.methods.balanceOf(accounts[0]).call();
-        setTokenBalance(
-          parseFloat(web3.utils.fromWei(balance, "ether")).toFixed(2)
-        );
+        setTokenBalance(formatBalance(web3.utils.fromWei(balance, "ether")));
       } catch (error) {
         console.error("Error connecting to wallet:", error);
       }
@@ -62,9 +67,7 @@ const YourAccount = () => {
         const web3 = new Web3(window.ethereum);
         const contract = new web3.eth.Contract(tokenABI, tokenAddress);
         const balance = await contract.methods.balanceOf(walletAddress).call();
-        setTokenBalance(
-          parseFloat(web3.utils.fromWei(balance, "ether")).toFixed(2)
-        );
+        setTokenBalance(formatBalance(web3.utils.fromWei(balance, "ether")));
       };
       fetchTokenBalance();
     }
@@ -73,8 +76,8 @@ const YourAccount = () => {
   return (
     <Fragment>
       {/* Placeholder components for previewing prototype UX/UI */}
-      <div className="container py-5 px-32">
-        <div className="grid grid-cols-12 lg:gap-x-10 bg-white justify-center items-center border border-gray-200 p-10 rounded-2xl">
+      <div className="container py-5 px-4 lg:px-32">
+        <div className="grid grid-cols-12 gap-4 lg:gap-x-10 bg-white justify-center items-center border border-gray-200 p-5 lg:p-10 rounded-2xl">
           <div className="hidden lg:block col-span-12 lg:col-span-4">
             <div className="rounded-xl overflow-hidden max-w-full h-full">
               <img
@@ -96,7 +99,7 @@ const YourAccount = () => {
               onClick={connectWallet}
               type="button"
               disabled={isWalletConnected}
-              className={`py-3 btn my-5 font-bold text-white rounded-3xl text-xs lg:text-base px-6 border-none shadow-none w-56 ${
+              className={`py-3 btn my-5 font-bold text-white rounded-3xl text-xs lg:text-base px-6 border-none shadow-none w-full lg:w-56 ${
                 isWalletConnected
                   ? "bg-gray-500 cursor-not-allowed"
                   : "bg-[#92B344] hover:bg-mls-primary hover:text-mls-black"
@@ -106,7 +109,7 @@ const YourAccount = () => {
             </button>
 
             <div className="grid grid-cols-12 gap-4 mb-5">
-              <div className="col-span-12 lg:col-span-12">
+              <div className="col-span-12">
                 <div className="bg-mls-secondary-black border-gray-200 border-2 rounded-xl p-4 w-full h-full">
                   <div className="flex flex-row items-center justify-between">
                     <div>
@@ -130,7 +133,12 @@ const YourAccount = () => {
                   <button
                     onClick={onBuyToken}
                     type="button"
-                    className="btn bg-[#92B344] rounded-3xl text-white hover:bg-mls-primary hover:text-mls-black text-xs lg:text-base px-6 py-3 border-none shadow-none w-36 lg:w-40"
+                    disabled={!isWalletConnected}
+                    className={`btn rounded-3xl text-white text-xs lg:text-base px-6 py-3 border-none shadow-none w-full lg:w-40 ${
+                      isWalletConnected
+                        ? "bg-[#92B344] hover:bg-mls-primary hover:text-mls-black"
+                        : "bg-gray-500 cursor-not-allowed"
+                    }`}
                   >
                     {t("buyGiv")}
                   </button>
@@ -145,14 +153,14 @@ const YourAccount = () => {
                 >
                   {t("referralLink")}
                 </label>
-                <div className="flex flex-row">
-                  <div className="relative text-white-dark">
+                <div className="flex flex-col lg:flex-row">
+                  <div className="relative text-white-dark w-full lg:w-auto">
                     <input
                       disabled
                       id="Email"
                       type="text"
                       value={referralLink}
-                      className="refferal-link ps-2 h-full w-96 bg-gray-300 placeholder:text-black rounded-lg"
+                      className="refferal-link ps-2 h-10 lg:h-full w-full lg:w-96 bg-gray-300 placeholder:text-black rounded-lg"
                       autoComplete="off"
                       name="email"
                     />
@@ -160,9 +168,9 @@ const YourAccount = () => {
                   <button
                     onClick={onCopyReferralLink}
                     type="button"
-                    disabled={isCopyButtonDisabled}
-                    className={`btn ml-2 rounded-3xl text-xs lg:text-base px-4 py-2 border-none shadow-none w-32 lg:w-36 ${
-                      isCopyButtonDisabled
+                    disabled={!isWalletConnected || isCopyButtonDisabled}
+                    className={`btn mt-2 lg:mt-0 lg:ml-2 rounded-3xl text-xs lg:text-base px-4 py-2 border-none shadow-none w-full lg:w-36 ${
+                      isCopyButtonDisabled || !isWalletConnected
                         ? "bg-gray-500 text-white cursor-not-allowed"
                         : "bg-blue-500 text-white hover:opacity-80"
                     }`}
@@ -179,7 +187,14 @@ const YourAccount = () => {
                     {t("news")}
                   </div>
                   <Link to="/blog">
-                    <button className="btn text-mls-primary px-4 max-h-max h-7 flex items-center justify-center rounded-lg hover:bg-mls-light-gray border-none shadow-none">
+                    <button
+                      disabled={!isWalletConnected}
+                      className={`btn text-mls-primary px-4 max-h-max h-7 flex items-center justify-center rounded-lg hover:bg-mls-light-gray border-none shadow-none ${
+                        !isWalletConnected
+                          ? "bg-gray-500 text-white cursor-not-allowed"
+                          : ""
+                      }`}
+                    >
                       {t("seeMore")}
                     </button>
                   </Link>
