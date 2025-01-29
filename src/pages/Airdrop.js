@@ -140,14 +140,18 @@ const Airdrop = () => {
             )}
           </div> */}
 
-          <div className="grid grid-cols-12 gap-4 mb-5 px-10">
+          <div className="grid grid-cols-12 gap-4 mb-5 px-5 lg:px-10">
             <div className="col-span-12 lg:col-span-6">
               <div className="grid grid-cols-12 gap-0">
                 <div className="col-span-8">
-                  <div className="bg-white rounded-xl p-4 h-full">
+                  <div className="bg-white rounded-xl pt-2 lg:pt-4 lg:p-4 h-full">
                     <div className="flex flex-row items-center justify-start">
-                      <div className="h-20 w-20 mr-10">
-                        <img alt="x" src="/assets/image/icon/x-logo.png" />
+                      <div className="mr-2 lg:mr-10">
+                        <img
+                          alt="x"
+                          className="h-12 w-12 lg:h-20 lg:w-20"
+                          src="/assets/image/icon/x-logo.png"
+                        />
                       </div>
                       <div>
                         <div className="text-black font-bold text-xl lg:text-xl mb-2">
@@ -192,11 +196,12 @@ const Airdrop = () => {
             <div className="col-span-12 lg:col-span-6">
               <div className="grid grid-cols-12 gap-0">
                 <div className="col-span-8">
-                  <div className="bg-white rounded-xl p-4 h-full">
+                  <div className="bg-white rounded-xl pt-2 lg:pt-4 lg:p-4 h-full">
                     <div className="flex flex-row items-center justify-start">
-                      <div className="h-20 w-20 mr-10">
+                      <div className="mr-2 lg:mr-10">
                         <img
-                          alt="x"
+                          alt="facebook"
+                          className="h-12 w-12 lg:h-20 lg:w-20"
                           src="/assets/image/icon/facebook-logo.png"
                         />
                       </div>
