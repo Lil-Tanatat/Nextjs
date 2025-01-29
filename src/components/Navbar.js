@@ -92,7 +92,7 @@ function Navbar() {
 
         {/* Menu Items */}
         <ul
-          className={`md:flex md:space-x-3 lg:space-x-6 absolute md:relative bg-white md:bg-transparent w-full md:w-auto top-[62px] left-0 md:top-0 z-10 md:z-auto transition-all duration-300 ease-in ${
+          className={`md:flex md:space-x-3 lg:space-x-6 absolute md:relative bg-white md:bg-transparent w-full md:w-auto top-[62px] left-0 md:top-0 z-20 md:z-auto transition-all duration-300 ease-in ${
             isMenuOpen ? "block" : "hidden md:flex"
           } flex flex-col md:flex-row`}
         >

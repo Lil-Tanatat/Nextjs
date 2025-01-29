@@ -191,7 +191,7 @@ const YourAccount = () => {
                       disabled={!isWalletConnected}
                       className={`btn text-mls-primary px-4 max-h-max h-7 flex items-center justify-center rounded-lg hover:bg-mls-light-gray border-none shadow-none ${
                         !isWalletConnected
-                          ? "bg-gray-500 text-white cursor-not-allowed"
+                          ? " text-black cursor-not-allowed"
                           : ""
                       }`}
                     >
