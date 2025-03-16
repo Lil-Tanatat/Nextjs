@@ -39,7 +39,7 @@ const Header = () => {
   // Countdown Timer
   useEffect(() => {
     const startDate = new Date("2025-01-01T23:59:59");
-    const targetDate = new Date("2025-03-30T23:59:59");
+    const targetDate = new Date("2025-05-30T23:59:59");
 
     const countdown = setInterval(() => {
       const now = new Date().getTime();
