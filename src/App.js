@@ -40,6 +40,7 @@ function App() {
         <Route path="/faq" element={<FAQ />} />
         <Route path="/withdraw" element={<WithdrawPage />} />
         <Route path="/withdraw-ico" element={<WithdrawICOPage />} />
+        <Route path="/marketplace" element={<ComingSoon />} />
         {/* <Route path="/test" element={<BookStore />} /> */}
       </Routes>
       <Footer />
