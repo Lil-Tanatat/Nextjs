@@ -33,7 +33,7 @@ function ComingSoon() {
           transition={{ duration: 0.6, delay: 0.3 }}
         >
           <h2 className="text-2xl md:text-3xl font-semibold text-[#517008]">
-            Wait for updates on February 3, 2025
+            Wait for updates
           </h2>
           <p className="mt-4 text-lg md:text-xl text-[#050505] font-normal">
             We’re working hard behind the scenes to bring you an exciting new
